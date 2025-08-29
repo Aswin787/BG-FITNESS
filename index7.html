@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Join BG-FITNESS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#000;
+      --card:#111;
+      --accent:#00ff88;
+      --accent-d:#00cc66;
+      --muted:#b7b7b7;
+      --text:#fff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:"Montserrat",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      padding:24px;
+      font-size:clamp(15px,1.2vw,18px);
+    }
+    .layout{ max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 360px; gap:20px; }
+    @media(max-width:900px){ .layout{ grid-template-columns:1fr; padding-bottom:40px; } }
+    header{text-align:center;margin-bottom:8px}
+    h1{ color:var(--accent); font-size:clamp(2rem,4vw,2.6rem); margin:0 0 6px; }
+    p.lead{ color:var(--muted); margin:0 0 18px }
+    .card{ background:var(--card); border-radius:12px; padding:18px; border:1px solid #1b1b1b; box-shadow:0 8px 30px rgba(0,0,0,.5); }
+    form label{ display:block; margin:10px 0 6px; font-weight:600; font-size:clamp(.95rem,1vw,1rem); }
+    input,select,textarea{
+      width:100%; padding:11px 12px; border-radius:10px; border:1px solid #222;
+      background:#0b0b0b; color:var(--text); font-size:clamp(.95rem,1vw,1rem);
+    }
+    textarea{ min-height:86px; resize:vertical }
+    .muted{ color:var(--muted); font-size:clamp(.85rem,.9vw,.95rem) }
+    .btn{ display:inline-block; width:100%; padding:12px; border-radius:10px; border:none;
+      background:var(--accent); color:#002d18; font-weight:800; cursor:pointer;
+      font-size:clamp(.95rem,1vw,1.05rem); }
+    .preview{ margin-top:10px; border-radius:10px; border:1px dashed #222; padding:12px; min-height:120px;
+      display:grid; place-items:center; background:#070707; color:var(--muted); }
+    .modal-backdrop{ position:fixed; inset:0; display:none; align-items:center; justify-content:center;
+      background:rgba(0,0,0,.7); z-index:1200; padding:20px; }
+    .modal{ background:var(--card); padding:18px; border-radius:12px; max-width:520px; width:100%; text-align:center;
+      border:1px solid #232323; }
+    .modal img{ width:320px; max-width:100%; border-radius:12px; border:4px solid var(--accent) }
+    .modal .close{ margin-top:12px; padding:10px 16px; background:#222; color:var(--muted); border-radius:8px; border:none; cursor:pointer }
+
+        .btn:disabled {
+      background: #333;
+      color: #777;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* space between logo and text */
+  font-size: clamp(1.2rem, 2vw, 2.5rem); /* responsive font size */
+  white-space: nowrap; /* prevent breaking */
+}
+
+.logo img {
+  height: clamp(40px, 8vw, 80px); /* image scales responsively */
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="logo"> <img src="../BG-FITNESS/BG-images/Logo.png" alt="BG-FITNESS Logo" loading="lazy">BG-FITNESS</h1>
+    <p class="lead">Book Your 1-on-1 Fitness Coaching Session Today!</p>
+  </header>
+  <main class="layout">
+    <!-- left: booking form -->
+    <section class="card" aria-labelledby="join-title">
+      <h2 id="join-title" style="color:var(--accent); margin:0 0 10px;">Join BG-FITNESS</h2>
+      <p class="muted">Fill in your details and complete the ₹3,000 payment to proceed.</p>
+
+      <form id="joinForm" novalidate>
+        <label for="name">Full Name *</label>
+        <input id="name" name="name" type="text" required />
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <div>
+            <label for="age">Age *</label>
+            <input id="age" name="age" type="number" min="10" max="100" required />
+          </div>
+          <div>
+            <label for="gender">Gender *</label>
+            <select id="gender" name="gender" required>
+              <option value="">Select</option> 
+              <option>Male</option>
+              <option>Female</option>
+              <option>Prefer not to say</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="email">Email *</label>
+        <input id="email" name="email" type="email" required />
+
+        <label for="phone">Phone Number *</label>
+        <input id="phone" name="phone" type="tel" required />
+
+        <label for="goal">Primary Fitness Goal *</label>
+        <input id="goal" name="goal" type="text" required placeholder="e.g., Weight loss, Strength" />
+
+        <div style="margin-top:12px;">
+          <button type="button" id="payBtn" class="btn">Pay ₹3,000</button><br>
+
+        <!---->
+                <div style="margin-top:14px;">
+          <button id="submitBtn" class="btn" type="submit" disabled>Submit &amp; Send to WhatsApp</button>
+          <p style="text-align: center;">Click <b>‘Submit & Send to WhatsApp’</b> and share your payment screenshot to confirm booking.</p>
+        </div>
+
+      </form>
+    </section>
+
+    <!-- right: coach card -->
+    <aside class="card">
+      <h2>Your Coach</h2>
+      <div class="inline" style="align-items:flex-start; gap:14px;">
+        <img src="../BG-FITNESS/BG-images/Aswin J K.png" width="140" height="140" alt="Coach photo" style="border-radius:14px; border:2px solid var(--accent);" />
+        <div>
+          <h3 style="margin:0 0 6px;">Coach Name</h3>
+          <p class="muted" style="margin:0 0 8px;">Certified Personal Trainer • 7+ years • Strength & Conditioning</p>
+          <p class="muted" style="margin:0 0 8px;">DM on WhatsApp for schedules and transformations.</p>
+        </div>
+      </div>
+
+      <hr style="border:none;border-top:1px solid #1e1e1e;margin:16px 0;" />
+
+      <h2>Services</h2>
+      <ul style="margin:0; padding-left:18px; color:var(--muted);">
+        <li>1-on-1 Personal Training</li>
+        <li>Zumba</li>
+        <li>Custom Diet & Nutrition</li>
+        <li>Strength & Mobility Programs</li>
+      </ul>
+
+      <hr style="border:none;border-top:1px solid #1e1e1e;margin:16px 0;" />
+
+      <h2>Contact</h2>
+      <p class="muted" style="margin:0 0 4px;">Phone: +91 99409 09869</p>
+      <p class="muted" style="margin:0 0 4px;">Email: godsonzion0@gmail.com</p>
+      <p class="muted" style="margin:0;">Address: Your Gym Address, City</p>
+    </aside>
+  </main>
+
+  <!-- QR modal -->
+  <div class="modal-backdrop" id="qrModal">
+    <div class="modal">
+      <h3 style="color:var(--accent)">Scan & Pay ₹3,000</h3>
+      <img id="qrImage" src="../BG-FITNESS/BG-images/Scanner.jpg" alt="Payment QR code" /><p>or <br> <b>UPI ID:q408893617@ybi</b> </p>
+      <div>
+        <button class="close" id="closeModalBtn" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const coachNumber = "919940909869"; // without + for wa.me
+    const qrModal = document.getElementById('qrModal');
+    const payBtn = document.getElementById('payBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const form = document.getElementById('joinForm');
+
+        // Show QR modal
+    payBtn.addEventListener('click', () => {
+      qrModal.style.display = 'flex';
+      document.getElementById('submitBtn').disabled = false; // ✅ Enable submit button
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      qrModal.style.display = 'none';
+    });
+    qrModal.addEventListener('click', (ev) => {
+      if (ev.target === qrModal) qrModal.style.display = 'none';
+    });
+
+    // Form submit
+    form.addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      const name = document.getElementById('name').value.trim();
+      const age = document.getElementById('age').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const gender = document.getElementById('gender').value.trim();
+      const goal = document.getElementById('goal').value.trim();
+
+      const lines = [
+        '*BG-FITNESS — New Coaching Request*',
+        `Name: ${name}`,
+        `Age: ${age}`,
+        `Email: ${email}`,
+        `Phone: ${phone}`,
+        `Gender: ${gender}`,
+        `Fitness Goal: ${goal}`,
+        '',
+        '"Sharing my screenshot below to confirm booking"'
+      ];
+
+      const message = encodeURIComponent(lines.join('\n'));
+      const waUrl = `https://wa.me/${coachNumber}?text=${message}`;
+      window.open(waUrl, '_blank', 'noopener');
+    });
+  </script>
+</body>
+</html>

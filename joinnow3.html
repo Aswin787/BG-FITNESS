@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BG-FITNESS Membership Plans</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #000, #111);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #00ff88;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+    p.subtitle {
+      text-align: center;
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 40px;
+    }
+    .plans {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      max-width: 1000px;
+      margin: auto;
+      width: 100%;
+    }
+    .card {
+      background: #111;
+      border: 2px solid #00ff88;
+      border-radius: 15px;
+      padding: 25px;
+      width: 280px;
+      text-align: center;
+      transition: 0.3s ease;
+      box-shadow: 0 0 15px rgba(0,255,136,0.2);
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px rgba(0,255,136,0.5);
+    }
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #00ff88;
+    }
+    .price {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .month {
+      font-size: 1rem;
+      color: #bbb;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style: none;
+      margin-bottom: 20px;
+      text-align: left;
+      padding-left: 10px;
+    }
+    ul li {
+      margin: 8px 0;
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #111;
+      background: #00ff88;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #00cc66;
+    }
+
+    /* Coupon Modal */
+    .coupon-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      flex-direction: column;
+      text-align: center;
+    }
+    .coupon-box {
+      background: #111;
+      border: 2px solid #00ff88;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(0,255,136,0.6);
+    }
+    .coupon-box h2 {
+      color: #00ff88;
+      margin-bottom: 15px;
+    }
+    .coupon-img {
+      width: 1000px;
+      height: 500px;
+      background-image:url(../z-Images/CouponScreenshot2025-08-27124527.jpg);
+      color: #111;
+      font-weight: bold;
+      font-size: 1.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .close-btn {
+      margin-top: 15px;
+      background: red;
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      border: none;
+      font-weight: bold;
+    }
+
+    /* Gym Details Section */
+    .gym-details {
+      background: #000;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 50px;
+    }
+    .gym-details h2 {
+      color: #00ff88;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+    .gym-details p {
+      font-size: 1rem;
+      color: #ccc;
+      margin: 8px 0;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Choose Your Membership Plan</h1>
+    <p class="subtitle">Flexible plans tailored for you. Join us today and start your fitness journey.</p>
+    
+    <div class="plans">
+
+    
+
+      <!-- 1 Month Plan -->
+      <div class="card">
+        <h2>1 Month Plan</h2>
+        <div class="price">₹600</div>
+        <div class="month">₹600 / month <br>+ <br>₹400 for cardio</div>
+        <ul>
+          <li>Access to all gym equipment</li>
+          <li>1-on-1 guidance from coach</li>
+          <li>1 free diet consultations</li>
+          <li>Gym access 2hr/day</li>
+          <li>weight training</li>
+        </ul>
+        <button class="btn">Visit our desk for enrollment</button>
+      </div>
+
+        <!-- 3 Months -->
+      <div class="card">
+        <h2>3 Month Plan</h2>
+        <div class="price">₹1800</div>
+        <div class="month">₹600 / month <br>+<br>₹1,200 for cardio </div>
+        <ul>
+          <li>Access to all gym equipment</li>
+          <li>1-on-1 guidance from coach</li>
+          <li>1 free diet consultations</li>
+          <li>Gym access 2hr/day</li>
+          <li>weight training</li>
+        </ul>
+        <button class="btn" onclick="showCoupon()">Visit our desk for enrollment</button>
+      </div>
+
+      <!-- 6 Month Plan -->
+      <div class="card">
+        <h2>6 Month Combo</h2>
+        <div class="price">₹3000</div>
+        <div class="month">₹500 / month <br>+ <br>₹1,444 for cardio</div>
+        <ul>
+          <li>Access to all gym equipment</li>
+          <li>Zumba</li>
+          <li>2 free diet consultations</li>
+          <li>Weight loss/gain</li>
+          <li>Monthly progress tracking</li>
+        </ul>
+        <button class="btn">Visit our desk for enrollment</button>
+      </div>
+
+      <!-- 1 Year Plan -->
+      <div class="card">
+        <h2>1 Year Combo</h2>
+        <div class="price">₹5555</div>
+        <div class="month">₹462.9 / month <br>+ <br>+₹2,222 for cardio</div>
+        <ul>
+          <li>Unlimited access to gym</li>
+          <li>Monthly personal training session</li>
+          <li>4 free diet consultations</li>
+          <li>Priority support</li>
+        </ul>
+        <button class="btn">Visit our desk for enrollment</button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Gym Details Section -->
+  <div class="gym-details">
+    <h2>BG-FITNESS Gym Details</h2>
+    <p><strong>Address:</strong> 123 Main Street, Karur, Tamil Nadu - 639001</p>
+    <p><strong>Phone:</strong>+91 99409 09869</p>
+    <p><strong>Email:</strong>godsonzion0@gmail.com</p>
+    <p><strong>Working Hours:</strong> Mon - Sat : 5:00 AM - 9:00 PM</p>
+  </div>
+
+
+  <!-- Load html2canvas for generating coupon image -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BG-FITNESS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* RESET & BASIC */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+    body {
+      background-color: #000;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 5%;
+      background: #000;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: clamp(1.2rem, 2vw, 2rem);
+      white-space: nowrap;
+      color: #00ff88;
+      font-weight: 700;
+    }
+    .logo img {
+      height: clamp(40px, 6vw, 70px);
+      width: auto;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    nav a {
+      font-weight: 600;
+      font-size: clamp(0.8rem, 1.5vw, 1rem);
+      color: #fff;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #00ff88; }
+    @media (max-width: 768px) {
+      nav a:last-child { display: none; } /* hide Contact */
+    }
+
+    /* HERO */
+    .hero {
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438") center/cover no-repeat;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 20px;
+    }
+    .hero h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      margin-bottom: 20px;
+      color: #00ff88;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .hero button {
+      padding: 12px 24px;
+      background: #00ff88;
+      border: none;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .hero button:hover {
+      transform: scale(1.05);
+      background: #00cc66;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* SERVICES */
+    .services {
+      padding: 60px 5%;
+      text-align: center;
+    }
+    .services h2 {
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      color: #00ff88;
+      margin-bottom: 40px;
+    }
+    .service-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .service {
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+      flex: 1 1 250px;
+      max-width: 300px;
+      transition: transform 0.3s;
+    }
+    .service:hover { transform: translateY(-8px); }
+    .service h3 { color: #00ff88; margin-bottom: 10px; }
+    .service p { font-size: clamp(0.8rem, 1.2vw, 1rem); }
+
+    /* COACH */
+    .coach {
+      padding: 60px 5%;
+      text-align: center;
+    }
+    .coach h2 {
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      color: #00ff88;
+      margin-bottom: 40px;
+    }
+    .coach-card {
+      background: #111;
+      padding: 20px;
+      border-radius: 16px;
+      max-width: 350px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .coach-card:hover { transform: scale(1.05); }
+    .coach-card img {
+      width: clamp(150px, 30vw, 200px);
+      height: clamp(150px, 30vw, 200px);
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 3px solid #00ff88;
+      object-fit: cover;
+    }
+    .coach-card h3 { color: #00ff88; margin-bottom: 10px; }
+    .socials a {
+      margin: 0 10px;
+      font-size: clamp(16px, 2vw, 20px);
+      color: #00ff88;
+      transition: color 0.3s;
+    }
+    .socials a:hover { color: #fff; }
+
+    /* HIGHLIGHT */
+    .highlight {
+      padding: 60px 5%;
+      text-align: center;
+      background: #111;
+      margin-top: 40px;
+      border-radius: 12px;
+    }
+    .highlight h2 {
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      margin-bottom: 20px;
+    }
+    .highlight button {
+      padding: 12px 24px;
+      background: #00ff88;
+      border: none;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .highlight button:hover {
+      transform: scale(1.05);
+      background: #00cc66;
+    }
+
+    /* CONTACT */
+    .contact {
+      padding: 60px 5%;
+      background: #000;
+      text-align: center;
+    }
+    .contact h2 {
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      color: #00ff88;
+      margin-bottom: 40px;
+    }
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .contact-card {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: left;
+      flex: 1 1 220px;
+      max-width: 250px;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .contact-card:hover {
+      transform: translateY(-5px);
+      background: #222;
+    }
+    .contact-card a { color: #00ff88; font-weight: 600; }
+    .contact-card a:hover { color: #fff; }
+
+    /* FOOTER */
+    footer {
+      background: #000;
+      padding: 20px 5%;
+      text-align: center;
+      border-top: 1px solid #222;
+      color: #aaa;
+      font-size: clamp(0.8rem, 1.5vw, 1rem);
+    }
+
+    /* RESPONSIVE TWEAKS */
+    @media (max-width: 500px) {
+      .hero h2 { font-size: 1.5rem; }
+      .coach-card { padding: 15px; }
+      .service { padding: 15px; }
+      header { padding: 10px 3%; }
+      nav { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 class="logo">
+    <img src="../BG-FITNESS/BG-images/Logo.png" alt="BG-FITNESS Logo" loading="lazy">
+    BG-FITNESS
+  </h1>
+  <nav>
+    <a href="gallery.html">Gallery</a> 
+    <a href="#services">Services</a>
+    <a href="#coach">Coach</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h2>Push Harder. Train Smarter.<br>With Team BG</h2>
+    <button onclick="window.location.href='joinnow3.html'">Join Now</button>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <h2>Our Services</h2>
+  <div class="service-boxes">
+    <div class="service">
+      <h3>Weight Training</h3>
+      <p>Build strength and muscle with expert-guided sessions.</p>
+    </div>
+    <div class="service">
+      <h3>Cardio</h3>
+      <p>Boost stamina with high-intensity cardio programs.</p>
+    </div>
+    <div class="service">
+      <h3>Zumba</h3>
+      <p>Burns calories, reduces stress, and boosts energy—all while having fun.</p>
+    </div>
+    <div class="service">
+      <h3>Personal Training</h3>
+      <p>One-on-one training customized for your fitness goals.</p>
+    </div>
+  </div>
+</section>
+
+<section class="coach" id="coach">
+  <h2>Meet Our Coach</h2>
+  <div class="coach-card">
+    <img src="../BG-FITNESS/BG-images/Aswin J K.png" alt="Coach Profile" loading="lazy">
+    <h3>B G <strong>Godson</strong></h3>
+    <p>Certified Fitness Coach with 7+ years experience in strength & conditioning.</p>
+    <div class="socials">
+      <a href="https://www.youtube.com/@b_g_godson/featured">🔗Youtube</a>
+      <a href="https://www.instagram.com/b_g_godson/?hl=en">📸Instagram</a>
+      <a href="#"><span style="color: #fff;">✘</span>Twitter</a>
+    </div>
+  </div>
+</section>
+
+<section class="highlight">
+  <h2>✨ Get personalized guidance, workouts, and nutrition support with a 120-day 1-on-1 fitness coaching plan. ✨</h2>
+  <button onclick="window.location.href='index7.html'">Book Now</button>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <div class="contact-container">
+    <div class="contact-card">
+      <p>📍 <strong>Address:</strong><br> BG-FITNESS, No.123, Main Street, Karur, Tamil Nadu</p>
+    </div>
+    <div class="contact-card">
+      <p>📧 <strong>Email:</strong><br> <a href="mailto:godsonzion0@gmail.com">godsonzion0@gmail.com</a></p>
+    </div>
+    <div class="contact-card">
+      <p>📞 <strong>Phone:</strong><br> <a href="tel:+919940909869">+91 99409 09869</a></p>
+    </div>
+    <div class="contact-card">
+      <p>💬 <strong>WhatsApp:</strong><br> <a href="https://wa.me/919940909869" target="_blank">Chat with us</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 BG-FITNESS | All Rights Reserved</p>
+</footer>
+
+<script>
+  window.onload = function() {
+    window.scrollTo(0, 0);
+  };
+</script>
+
+</body>
+</html>

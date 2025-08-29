@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BG-FITNESS | Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #000;
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap; /* prevent wrapping */
+      font-weight: 700;
+      color: #00ff88;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+    }
+
+    .logo img {
+      height: clamp(50px, 8vw, 80px);
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+      font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    }
+
+    nav a:hover { color: #00ff88; }
+    nav a.active { color: #00ff88; }
+
+    .gallery-section {
+      padding: 60px 5%;
+      text-align: center;
+    }
+
+    .gallery-section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      color: #00ff88;
+      margin-bottom: 40px;
+    }
+
+    .infinite-scroll-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+      background: #111;
+      border-radius: 12px;
+      padding: 20px 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    .infinite-scroll-track {
+      display: flex;
+      gap: 20px;
+      animation: scroll-cards 18s linear infinite;
+      padding: 0 20px;
+    }
+
+    .infinite-scroll-card {
+      flex: 0 0 400px;
+      min-height: 500px;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      background: #222;
+    }
+
+    .infinite-scroll-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .infinite-scroll-card:hover {
+      transform: translateY(-5px);
+    }
+
+    @keyframes scroll-cards {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-400px * 3 - 60px)); }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .infinite-scroll-card {
+        flex: 0 0 200px;
+        min-height: 250px;
+      }
+      @keyframes scroll-cards {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-200px * 3 - 60px)); }
+      }
+    }
+
+    footer {
+      background: #000;
+      padding: 20px 5%;
+      text-align: center;
+      border-top: 1px solid #222;
+      color: #aaa;
+      margin-top: 40px;
+      font-size: clamp(0.8rem, 1.5vw, 1rem);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="../BG-FITNESS/BG-images/Logo.png" alt="BG-FITNESS Logo" loading="lazy">
+      BG-FITNESS
+    </div>
+    <nav>
+      <a href="BG.html">Home</a>
+      <a href="gallery.html" class="active">Gallery</a>
+    </nav>
+  </header>
+
+  <section class="gallery-section">
+    <h2>💪 Achievements & Transformations</h2>
+    <div class="infinite-scroll-container">
+      <div class="infinite-scroll-track">
+        <div class="infinite-scroll-card"><img src="../BG-FITNESS/BG-images/Godson-T.JPG" alt="" loading="lazy"></div>
+        <div class="infinite-scroll-card"><img src="../BG-FITNESS/BG-images/Godson-s6.JPG" alt="" loading="lazy"></div>
+        <div class="infinite-scroll-card"><img src="../BG-FITNESS/BG-images/Godson-U.JPG" alt="" loading="lazy"></div>
+        <div class="infinite-scroll-card"><img src="../BG-FITNESS/BG-images/Godson-U6.JPG" alt="" loading="lazy"></div>
+        <div class="infinite-scroll-card"><img src="../BG-FITNESS/BG-images/Godson-Shirt.JPG" alt="" loading="lazy"></div>
+        <div class="infinite-scroll-card"><img src="../BG-FITNESS/BG-images/Godson BB.JPG" alt="" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 BG-FITNESS | Transformations & Achievements</p>
+  </footer>
+
+</body>
+</html>
