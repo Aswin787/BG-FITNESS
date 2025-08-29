@@ -332,6 +332,18 @@
     background: url("../bg-images/BGBG.png") top center / contain no-repeat;
     background-color: #000; /* fills empty space around */
   }
+
+  /* Fix hero height for small devices like iPhone SE */
+@media (max-width: 375px) {
+  .hero {
+    height: auto; /* shrink to content */
+    padding: 80px 20px 60px; /* space around text & button */
+  }
+  .hero-content {
+    padding-bottom: 20px; /* extra space below text */
+  }
+}
+
   </style>
 </head>
 <body>
