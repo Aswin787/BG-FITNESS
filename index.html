@@ -116,6 +116,65 @@
       to {opacity: 1; transform: translateY(0);}
     }
 
+    /* GALLERY */
+    .gallery-section {
+      padding: 60px 5%;
+      text-align: center;
+    }
+    .gallery-section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      color: #00ff88;
+      margin-bottom: 40px;
+    }
+    .infinite-scroll-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+      background: #111;
+      border-radius: 12px;
+      padding: 20px 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    .infinite-scroll-track {
+      display: flex;
+      gap: 20px;
+      animation: scroll-cards 18s linear infinite;
+      padding: 0 20px;
+    }
+    .infinite-scroll-card {
+      flex: 0 0 400px;
+      min-height: 500px;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      background: #222;
+    }
+    .infinite-scroll-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .infinite-scroll-card:hover {
+      transform: translateY(-5px);
+    }
+    @keyframes scroll-cards {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-400px * 3 - 60px)); }
+    }
+    @media (max-width: 768px) {
+      .infinite-scroll-card {
+        flex: 0 0 200px;
+        min-height: 250px;
+      }
+      @keyframes scroll-cards {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-200px * 3 - 60px)); }
+      }
+    }
+
     /* SERVICES */
     .services {
       padding: 60px 5%;
@@ -268,11 +327,10 @@
 
 <header>
   <h1 class="logo">
-    <img src="bG-images/Logo.png" alt="BG-FITNESS Logo" loading="lazy">
+    <img src="../BG-FITNESS/BG-images/Logo.png" alt="BG-FITNESS Logo" loading="lazy">
     BG-FITNESS
   </h1>
   <nav>
-    <a href="gallery.html">Gallery</a> 
     <a href="#services">Services</a>
     <a href="#coach">Coach</a>
     <a href="#contact">Contact</a>
@@ -285,6 +343,36 @@
     <button onclick="window.location.href='joinnow3.html'">Join Now</button>
   </div>
 </section>
+
+<!-- GALLERY SECTION INSERTED HERE -->
+<section class="gallery-section">
+  <h2>💪 My Transformations</h2>
+  <div class="infinite-scroll-container">
+    <div class="infinite-scroll-track">
+      <div class="infinite-scroll-card"><img src="../BG-FITNESS/BG-images/Godson-T.JPG" alt=""></div>
+      <div class="infinite-scroll-card"><img src="../BG-FITNESS/BG-images/Godson-s6.JPG" alt=""></div>
+      <div class="infinite-scroll-card"><img src="../BG-FITNESS/BG-images/Godson-U.JPG" alt=""></div>
+      <div class="infinite-scroll-card"><img src="../BG-FITNESS/BG-images/Godson-U6.JPG" alt=""></div>
+      <div class="infinite-scroll-card"><img src="../BG-FITNESS/BG-images/Godson-Shirt.JPG" alt=""></div>
+      <div class="infinite-scroll-card"><img src="../BG-FITNESS/BG-images/Godson BB.JPG" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <h2>Our Achievements</h2>
+  <div class="infinite-scroll-container">
+    <div class="infinite-scroll-track">
+      <div class="infinite-scroll-card"><img src="../BG-FITNESS/BG-images/Godson-T.JPG" alt=""></div>
+      <div class="infinite-scroll-card"><img src="../BG-FITNESS/BG-images/Godson-s6.JPG" alt=""></div>
+      <div class="infinite-scroll-card"><img src="../BG-FITNESS/BG-images/Godson-U.JPG" alt=""></div>
+      <div class="infinite-scroll-card"><img src="../BG-FITNESS/BG-images/Godson-U6.JPG" alt=""></div>
+      <div class="infinite-scroll-card"><img src="../BG-FITNESS/BG-images/Godson-Shirt.JPG" alt=""></div>
+      <div class="infinite-scroll-card"><img src="../BG-FITNESS/BG-images/Godson BB.JPG" alt=""></div>
+    </div>
+  </div>
+</section>
+<!-- END GALLERY -->
 
 <section class="services" id="services">
   <h2>Our Services</h2>
@@ -311,7 +399,7 @@
 <section class="coach" id="coach">
   <h2>Meet Our Coach</h2>
   <div class="coach-card">
-    <img src="bG-images/Aswin J K.png" alt="Coach Profile" loading="lazy">
+    <img src="../BG-FITNESS/BG-images/Aswin J K.png" alt="Coach Profile" loading="lazy">
     <h3>B G <strong>Godson</strong></h3>
     <p>Certified Fitness Coach with 7+ years experience in strength & conditioning.</p>
     <div class="socials">
@@ -331,7 +419,7 @@
   <h2>Contact Us</h2>
   <div class="contact-container">
     <div class="contact-card">
-      <p>📍 <strong>Address:</strong><br> BG-FITNESS, Annie complex,First Floor,Melakrishnanputhoor<br>Junction</p>
+      <p>📍 <strong>Address:</strong><br> BG-FITNESS, No.123, Main Street, Karur, Tamil Nadu</p>
     </div>
     <div class="contact-card">
       <p>📧 <strong>Email:</strong><br> <a href="mailto:godsonzion0@gmail.com">godsonzion0@gmail.com</a></p>
@@ -357,3 +445,4 @@
 
 </body>
 </html>
+
