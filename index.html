@@ -367,6 +367,51 @@
   to { transform: translateX(-50%); } /* moves half (we’ll clone) */
 }
 
+.achievements {
+  padding: 60px 20px;
+  background: #111;
+  text-align: center;
+}
+
+.achievements h2 {
+  font-size: 2rem;
+  color: #f0f0f0;
+  margin-bottom: 30px;
+}
+
+.achievements-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.achievements-track {
+  display: flex;
+  gap: 16px;
+  animation: achievementsScroll 50s linear infinite;
+}
+
+.achievements-card img {
+  width: 280px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+/* Animation */
+@keyframes achievementsScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .achievements-card img {
+    width: 200px;
+    height: 130px;
+  }
+}
 
   </style>
 </head>
@@ -407,68 +452,69 @@
     
 </section>
 
-<section class="gallery" id="gallery">
+<section class="achievements" id="achievements">
   <h2>Our Achievements</h2>
-  <div class="gallery-container" id="gallery-container">
-    <div class="gallery-track" id="gallery-track">
-      <div class="infinite-scroll-card"><img src="bg-images/Jetli.JPG.jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/1.jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/29..jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/30..jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/31..jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/32..jpg" alt="" loading="eager"></div>
-       <div class="infinite-scroll-card"><img src="bG-images/33..jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/34..jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/35..jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/36..jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/37..jpg" alt="" loading="eager"></div>
-       <div class="infinite-scroll-card"><img src="bG-images/38..jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/39..jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/2.jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/3.jpg" alt="" loading="eager"></div>
-        <div class="infinite-scroll-card"><img src="bG-images/4.jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/5.jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/6.jpg" alt="" loading="eager"></div>
-          <div class="infinite-scroll-card"><img src="bg-images/7.jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/8.jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/9.jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/10.jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/11.jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/12.jpg" alt="" loading="eager"></div>
-       <div class="infinite-scroll-card"><img src="bG-images/13.jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/14.jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/15.jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/16.jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/17.jpg" alt="" loading="eager"></div>
-       <div class="infinite-scroll-card"><img src="bG-images/18.jpg" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/19.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/20.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/21.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bg-images/22.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/23.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/24.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/25.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/26.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/27.jpg" alt=""></div>
-       <div class="infinite-scroll-card"><img src="bG-images/28.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/40.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/41.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/42.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/43.jpg" alt=""></div>
-       <div class="infinite-scroll-card"><img src="bG-images/44.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/45.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/46.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/47.jpg" alt=""></div>
-          <div class="infinite-scroll-card"><img src="bg-images/48.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/49.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/50.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/51.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/52.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/53.jpg" alt=""></div>
-
+  <div class="achievements-container" id="achievements-container">
+    <div class="achievements-track" id="achievements-track">
+      <!-- Only ONE copy of your images -->
+      <div class="achievements-card"><img src="bg-images/Jetli.JPG.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/1.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/29..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/30..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/31..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/32..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/33..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/34..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/35..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/36..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/37..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/38..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/39..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/2.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/3.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/4.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/5.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/6.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/7.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/8.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/9.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/10.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/11.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/12.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/13.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/14.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/15.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/16.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/17.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/18.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/19.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/20.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/21.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/22.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/23.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/24.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/25.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/26.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/27.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/28.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/40.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/41.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/42.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/43.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/44.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/45.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/46.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/47.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/48.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/49.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/50.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/51.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/52.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/53.jpg" alt=""></div>
     </div>
   </div>
 </section>
+
 <!-- END GALLERY -->
 
 <section class="services" id="services">
@@ -560,6 +606,11 @@
   const track = document.getElementById("gallery-track");
   const clone = track.cloneNode(true); // duplicate images
   document.getElementById("gallery-container").appendChild(clone);
+</script>
+<script>
+  const achievementsTrack = document.getElementById("achievements-track");
+  const clone = achievementsTrack.cloneNode(true);
+  document.getElementById("achievements-container").appendChild(clone);
 </script>
 
 
