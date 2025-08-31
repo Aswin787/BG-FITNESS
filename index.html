@@ -410,16 +410,16 @@
 </section>
 
 <!-- GALLERY SECTION INSERTED HERE -->
-<section class="gallery" class="gallery">
+<section class="gallery" >
   <h2>💪 My Transformations</h2>
   <div class="gallery-container" id="gallery-container">
     <div class="gallery-track" id="gallery-track">
-      <div class="infinite-scroll-card"><img src="bG-images/Godson-T.JPG" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/Godson-s6.JPG" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/Godson-U.JPG" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/Godson-U6.JPG" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/Godson-Shirt.JPG" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/Godson BB.JPG" alt="" loading="eager"></div>
+      <div><img src="bG-images/Godson-T.JPG" alt="" loading="eager"></div>
+      <div><img src="bG-images/Godson-s6.JPG" alt="" loading="eager"></div>
+      <div><img src="bG-images/Godson-U.JPG" alt="" loading="eager"></div>
+      <div><img src="bG-images/Godson-U6.JPG" alt="" loading="eager"></div>
+      <div><img src="bG-images/Godson-Shirt.JPG" alt="" loading="eager"></div>
+      <div><img src="bG-images/Godson BB.JPG" alt="" loading="eager"></div>
 
     </div>
     
@@ -580,6 +580,10 @@
   galleryTrack.innerHTML += galleryTrack.innerHTML; // duplicate images for infinite scroll
 </script>
 
+<script>
+  const galleryTrack = document.getElementById("gallery-track");
+  galleryTrack.innerHTML += galleryTrack.innerHTML; // duplicate images for smooth infinite scroll
+</script>
 
 
 
