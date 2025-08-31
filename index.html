@@ -126,55 +126,7 @@
       color: #00ff88;
       margin-bottom: 40px;
     }
-    .infinite-scroll-container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      overflow: hidden;
-      position: relative;
-      background: #111;
-      border-radius: 12px;
-      padding: 20px 0;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    }
-    .infinite-scroll-track {
-      display: flex;
-      gap: 20px;
-      animation: scroll-cards 80s linear infinite; /*18s*/
-      padding: 0 20px;
-    }
-    .infinite-scroll-card {
-      flex: 0 0 400px;
-      min-height: 500px;
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-      background: #222;
-    }
-    .infinite-scroll-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .infinite-scroll-card:hover {
-      transform: translateY(-5px);
-    }
-    @keyframes scroll-cards {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(calc(-1000px * 25 - 120px)); } /*1000 6 120*/ /*30*/
-    }
-    @media (max-width: 768px) {
-      .infinite-scroll-card {
-        flex: 0 0 200px;
-        min-height: 250px;
-      }
-      @keyframes scroll-cards {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-800px * 12 - 120px)); } /800 6 120/
-      }
-    }
-
+   
     /* SERVICES */
     .services {
       padding: 60px 5%;
@@ -623,16 +575,11 @@
     window.scrollTo(0, 0);
   };
 </script>
-  <script>
-  const track = document.getElementById("gallery-track");
-  const clone = track.cloneNode(true); // duplicate images
-  document.getElementById("gallery-container").appendChild(clone);
+ <script>
+  const galleryTrack = document.getElementById("gallery-track");
+  galleryTrack.innerHTML += galleryTrack.innerHTML; // duplicate images for infinite scroll
 </script>
-<script>
-const track = document.getElementById("scroll-track");
-// Clone its children, not the whole track
-track.innerHTML += track.innerHTML;
-</script>
+
 
 
 
