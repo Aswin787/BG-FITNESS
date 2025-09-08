@@ -535,7 +535,48 @@
     }
   }
 }
-
+/*Gallwry change*/
+        /* GALLERY */
+    .gallery-section {
+      padding: 60px 5%;
+      text-align: center;
+    }
+    .gallery-section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      color: #00ff88;
+      margin-bottom: 40px;
+    }
+    .infinite-scroll-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+      background: #111;
+      border-radius: 12px;
+      padding: 20px 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    .infinite-scroll-track {
+      display: flex;
+      gap: 20px;
+      animation: scroll-cards 18s linear infinite;
+      padding: 0 20px;
+    }
+    .infinite-scroll-card {
+      flex: 0 0 400px;
+      min-height: 500px;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      background: #222;
+    }
+    .infinite-scroll-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
   </style>
 </head>
 <body>
