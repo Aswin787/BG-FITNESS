@@ -304,7 +304,7 @@
   background: #222;
 }
 
-.achievements-container {
+/* .achievements-container {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
@@ -317,34 +317,64 @@
   animation: none; /* stop scrolling */
 }
 
-.achievements-card {
+/* .achievements-card {
   background: #222;
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.3s;
-}
-
+} */
+ */
 .achievements-card:hover {
   transform: scale(1.05);
 }
 
-.achievements-card img {
+/* .achievements-card img {
   width: 100%;
   height: 250px;
     object-position: center;
-  display: block;
+  display: block; */
 /* object-fit: cover; */
-/*    object-fit: cover; */
-    object-fit: contain;   /* full image visible */
-  background: #000;      /* optional: fill gaps with black */
+/* /*    object-fit: cover; */
+/*     object-fit: contain;   /* full image visible */
+/* ackgr  bound: #000;      /* optional: fill gaps with black */ */ */
 
-}
+} */
 /*  /* Special case: show full image 
 .achievements-card.cover img {
 
 }
  */
- 
+ /*Edited*/
+    .achievements-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.achievements-track {
+  display: flex;
+  gap: 16px;
+  animation: scroll-gallery 60s linear infinite; /* same speed as transformations */
+  align-items: center;
+}
+
+.achievements-card {
+  flex: 0 0 auto; /* keep natural image width */
+  border-radius: 12px;
+  overflow: hidden;
+  background: #111;
+}
+
+.achievements-card img {
+  display: block;
+  height: auto;
+  width: auto;
+  max-height: 250px; /* keeps row neat, adjust as needed */
+  object-fit: contain;
+  background: #000;
+}
+
+    /**/
 /* Animation */
 @keyframes achievementsScroll {
   from { transform: translateX(0); }
@@ -628,6 +658,61 @@
     <div class="achievements-track" id="achievements-track"> -->
       <!--Only ONE copy of your images--> 
       <div class="achievements-card" class="cover"><img src="bg-images/Jetli.JPG.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/1.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/29..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/30..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/31..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/32..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/33..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/34..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/35..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/36..jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/37..jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/38..jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/39..jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/2.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/3.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/4.jpg" alt=""></div>
+      <div class="achievements-card cover" ><img src="bg-images/5.jpg" alt=""></div>
+      <div class="achievements-card cover" ><img src="bg-images/6.jpg" alt=""></div>
+      <div class="achievements-card cover" ><img src="bg-images/7.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/8.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/9.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/10.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/11.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/12.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/13.jpg" alt=""></div>
+      <div class="achievements-card cover" ><img src="bg-images/14.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/15.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/16.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/17.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/18.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/19.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/20.jpg" alt=""></div>
+      <div class="achievements-card cover" ><img src="bg-images/21.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/22.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/23.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/24.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/25.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/26.jpg" alt=""></div>
+      <div class="achievements-card cover" ><img src="bg-images/27.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/28.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/40.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/41.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/42.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/43.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/44.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/45.jpg" alt=""></div>
+      <div class="achievements-card cover"><img src="bg-images/46.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/47.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/48.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/49.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/50.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/51.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/52.jpg" alt=""></div>
+      <div class="achievements-card"><img src="bg-images/53.jpg" alt=""></div>
+      <!--Duplicate-->
+         <div class="achievements-card" class="cover"><img src="bg-images/Jetli.JPG.jpg" alt=""></div>
       <div class="achievements-card"><img src="bg-images/1.jpg" alt=""></div>
       <div class="achievements-card"><img src="bg-images/29..jpg" alt=""></div>
       <div class="achievements-card"><img src="bg-images/30..jpg" alt=""></div>
