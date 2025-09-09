@@ -535,48 +535,40 @@
     }
   }
 }
-/*Gallwry change*/
-        /* GALLERY */
-    .gallery-section {
-      padding: 60px 5%;
-      text-align: center;
-    }
-    .gallery-section h2 {
-      font-size: clamp(1.8rem, 4vw, 2.2rem);
-      color: #00ff88;
-      margin-bottom: 40px;
-    }
-    .infinite-scroll-container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      overflow: hidden;
-      position: relative;
-      background: #111;
-      border-radius: 12px;
-      padding: 20px 0;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    }
-    .infinite-scroll-track {
-      display: flex;
-      gap: 20px;
-      animation: scroll-cards 18s linear infinite;
-      padding: 0 20px;
-    }
-    .infinite-scroll-card {
-      flex: 0 0 400px;
-      min-height: 500px;
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-      background: #222;
-    }
-    .infinite-scroll-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+/*New scrolling*/
+    .achievements-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.achievements-track {
+  display: flex;
+  gap: 16px;
+  animation: achievements-scroll 80s linear infinite; /* slower for many images */
+}
+
+.achievements-card {
+  flex: 0 0 clamp(180px, 20vw, 300px);
+  height: clamp(200px, 25vw, 350px);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #222;
+}
+
+.achievements-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Infinite scroll animation */
+@keyframes achievements-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* shift half since we duplicate */
+}
+
   </style>
 </head>
 <body>
@@ -663,12 +655,12 @@
     
 </section> -->
 
-<!-- <section class="achievements" id="achievements">
+ <section class="achievements" id="achievements">
   <h2>Our Achievements</h2>
   <div class="achievements-container" id="achievements-container">
     <div class="achievements-track" id="achievements-track"> -->
-      <!-- Only ONE copy of your images -->
-<!--       <div class="achievements-card" class="cover"><img src="bg-images/Jetli.JPG.jpg" alt=""></div>
+      <!--Only ONE copy of your images--> 
+      <div class="achievements-card" class="cover"><img src="bg-images/Jetli.JPG.jpg" alt=""></div>
       <div class="achievements-card"><img src="bg-images/1.jpg" alt=""></div>
       <div class="achievements-card"><img src="bg-images/29..jpg" alt=""></div>
       <div class="achievements-card"><img src="bg-images/30..jpg" alt=""></div>
@@ -724,75 +716,9 @@
       <div class="achievements-card"><img src="bg-images/53.jpg" alt=""></div>
     </div>
   </div>
-</section> -->
-
-  <section class="gallery-section">
-  <h2>Our Achievements</h2>
-  <div class="infinite-scroll-container">
-    <div class="infinite-scroll-track">
-      <div class="infinite-scroll-card"><img src="bg-images/Jetli.JPG.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/1..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/2..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/3..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/4..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/5..jpg" alt=""></div>
-       <div class="infinite-scroll-card"><img src="bG-images/6..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/7..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/8..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/9..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/10..jpg" alt=""></div>
-       <div class="infinite-scroll-card"><img src="bG-images/11..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/12..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/13..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/14..jpg" alt=""></div>
-          <div class="infinite-scroll-card"><img src="bg-images/Jetli.JPG.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/1..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/2..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/3..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/4..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/5..jpg" alt=""></div>
-       <div class="infinite-scroll-card"><img src="bG-images/6..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/7..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/8..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/9..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/10..jpg" alt=""></div>
-       <div class="infinite-scroll-card"><img src="bG-images/11..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/12..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/13..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/14..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bg-images/Jetli.JPG.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/1..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/2..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/3..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/4..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/5..jpg" alt=""></div>
-       <div class="infinite-scroll-card"><img src="bG-images/6..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/7..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/8..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/9..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/10..jpg" alt=""></div>
-       <div class="infinite-scroll-card"><img src="bG-images/11..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/12..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/13..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/14..jpg" alt=""></div>
-          <div class="infinite-scroll-card"><img src="bg-images/Jetli.JPG.jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/1..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/2..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/3..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/4..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/5..jpg" alt=""></div>
-       <div class="infinite-scroll-card"><img src="bG-images/6..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/7..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/8..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/9..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/10..jpg" alt=""></div>
-       <div class="infinite-scroll-card"><img src="bG-images/11..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/12..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/13..jpg" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/14..jpg" alt=""></div>
-    </div>
-  </div>
 </section>
+
+
 
 <!-- END GALLERY -->
 
