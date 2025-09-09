@@ -358,19 +358,27 @@
   align-items: center;
 }
 
-.achievements-card {
+/* .achievements-card {
   flex: 0 0 auto; /* keep natural image width */
-  border-radius: 12px;
+/*   border-radius: 12px;
   overflow: hidden;
   background: #111;
+}
+ */
+    .achievements-card {
+  flex: 0 0 clamp(180px, 25vw, 400px);
+  height: clamp(240px, 40vw, 500px);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #222;
 }
 
 .achievements-card img {
   display: block;
-  height: auto;
-  width: auto;
-  max-height: 250px; /* keeps row neat, adjust as needed */
-  object-fit: contain;
+  height: 100%;
+  width: 100%;
+ object-fit: cover;  /* makes image fill the card */
+ 
   background: #000;
 }
 
