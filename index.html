@@ -354,7 +354,7 @@
 .achievements-track {
   display: flex;
   gap: 16px;
-  animation: scroll-gallery 120s linear infinite; /* same speed as transformations */
+  animation: scroll-gallery 60s linear infinite; /* same speed as transformations */
   align-items: center;
 }
 
@@ -930,6 +930,23 @@
 <script>
   const galleryTrack = document.getElementById("gallery-track");
   galleryTrack.innerHTML += galleryTrack.innerHTML; // duplicate images for smooth infinite scroll
+</script>
+
+  <script>
+  const track = document.querySelector('.achievements-track');
+  const container = document.querySelector('.achievements-container');
+
+  function setScrollWidth() {
+    const scrollWidth = track.scrollWidth - container.clientWidth;
+    track.style.setProperty('--scroll-width', scrollWidth + 'px');
+
+    // adjust speed (bigger width = longer time for same speed)
+    const speed = scrollWidth / 50; // pixels per second (change 50 to make faster/slower)
+    track.style.animationDuration = speed + 's';
+  }
+
+  window.addEventListener('load', setScrollWidth);
+  window.addEventListener('resize', setScrollWidth);
 </script>
 
 
