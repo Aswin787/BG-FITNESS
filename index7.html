@@ -83,6 +83,13 @@ aside ul li {
 .modal img{ width:320px; max-width:100%; border-radius:12px; border:4px solid var(--accent); }
 .modal .close{ margin-top:12px; padding:10px 16px; background:#222; color:var(--muted); border-radius:8px; border:none; cursor:pointer; }
 
+  /* Make age & gender stack on small devices */
+@media (max-width: 400px) {
+  form div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 </style>
 </head>
 <body>
