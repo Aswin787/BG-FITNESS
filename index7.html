@@ -1,412 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Join BG-FITNESS</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root{
-      --bg:#000;
-      --card:#111;
-      --accent:#00ff88;
-      --accent-d:#00cc66;
-      --muted:#b7b7b7;
-      --text:#fff;
-    }
-    *{box-sizing:border-box;}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family:"Montserrat",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      padding:24px;
-      font-size:clamp(15px,1.2vw,18px);
-    }
-    .layout{ max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 360px; gap:20px; }
-    @media(max-width:900px){ .layout{ grid-template-columns:1fr; padding-bottom:40px; } }
-    header{text-align:center;margin-bottom:16px;}
-    h1{ color:var(--accent); font-size:clamp(2rem,4vw,2.6rem); margin:0 0 6px; }
-    p.lead{ color:var(--muted); margin:0 0 18px; }
-    .card{ background:var(--card); border-radius:12px; padding:18px; border:1px solid #1b1b1b; box-shadow:0 8px 30px rgba(0,0,0,.5); }
-    form label{ display:block; margin:10px 0 6px; font-weight:600; font-size:clamp(.95rem,1vw,1rem); }
-    input,select,textarea{
-      width:100%; padding:11px 12px; border-radius:10px; border:1px solid #222;
-      background:#0b0b0b; color:var(--text); font-size:clamp(.95rem,1vw,1rem);
-    }
-    textarea{ min-height:86px; resize:vertical; }
-    .muted{ color:var(--muted); font-size:clamp(.85rem,.9vw,.95rem); }
-    .btn{ display:inline-block; width:100%; padding:12px; border-radius:10px; border:none;
-      background:var(--accent); color:#002d18; font-weight:800; cursor:pointer;
-      font-size:clamp(.95rem,1vw,1.05rem); }
-    .modal-backdrop{ position:fixed; inset:0; display:none; align-items:center; justify-content:center;
-      background:rgba(0,0,0,.7); z-index:1200; padding:20px; }
-    .modal{ background:var(--card); padding:18px; border-radius:12px; max-width:520px; width:100%; text-align:center;
-      border:1px solid #232323; }
-    .modal img{ width:320px; max-width:100%; border-radius:12px; border:4px solid var(--accent); }
-    .modal .close{ margin-top:12px; padding:10px 16px; background:#222; color:var(--muted); border-radius:8px; border:none; cursor:pointer; }
-    .btn:disabled { background:#333; color:#777; cursor:not-allowed; opacity:0.6; }
-    .logo { display:inline-flex; align-items:center; gap:8px; font-size:clamp(1.2rem, 2vw, 2.5rem); white-space:nowrap; }
-    .logo img { height:clamp(40px, 8vw, 80px); }
-    /* Plan cards grid */
-    .plans-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin-bottom:20px; }
-    .plan-card { background:var(--card); border-radius:12px; padding:clamp(12px, 2vw, 20px); border:1px solid #1b1b1b; box-shadow:0 6px 20px rgba(0,0,0,.5); font-size: clamp(0.85rem, 2vw, 1rem); /* responsive font */ }
-    .plan-card h3 { color:var(--accent); margin-bottom:6px;  font-size: clamp(1rem, 3vw, 1.5rem); }
-    .plan-card p { margin:4px 0; color:var(--muted); font-size: clamp(.75rem, 1.8vw, .95rem); }
-    .plan-card ul li {
-  font-size: clamp(.75rem, 1.8vw, .95rem); /* responsive text */
-}
-    .plan-card-wide {
-  grid-column: 1 / -1;
-}
-
-@media(max-width: 400px) { /* iPhone SE width ~375px */
-  .plan-card-wide {
-    padding: 12px;
-    font-size: clamp(.7rem, 2vw, .9rem);
-  }
-}
-
-  </style>
-</head>
-<body>
-  <header>
-    <h1 class="logo"> <img src="bG-images/Logo.png" alt="BG-FITNESS Logo" loading="lazy">BG-FITNESS</h1>
-    <p class="lead">Book Your 1-on-1 Fitness Coaching Session Today!</p>
-  </header>
-
-  <main class="layout">
-    <!-- left column -->
-    <div>
-      <!-- Personal Training Plans Section -->
-<!--       <section class="plans-grid">
-        <div class="plan-card">
-          <h3>1 Month Plan — ₹3,000</h3>
-          <p>Duration: 1 Month</p>
-          <p>Includes 4 weekly personal training sessions, customized diet guidance, and weekly progress tracking.</p>
-        </div>
-        <div class="plan-card">
-          <h3>3 Months Plan — ₹8,000</h3>
-          <p>Duration: 3 Months</p>
-          <p>Includes 12 personal training sessions, personalized diet plan, monthly progress reports, and weekly consultations.</p>
-        </div>
-        <div class="plan-card">
-          <h3>6 Months Plan — ₹15,000</h3>
-          <p>Duration: 6 Months</p>
-          <p>Includes 24 personal training sessions, full diet & nutrition plan, progress tracking, and priority support.</p>
-        </div>
-        <div class="plan-card">
-          <h3>12 Months Plan — ₹28,000</h3>
-          <p>Duration: 12 Months</p>
-          <p>Includes 48 personal training sessions, full nutrition & workout plan, monthly progress tracking, and exclusive 1-on-1 coaching support.</p>
-        </div>
-      </section>
-      <style>
-  /* Plan cards grid */
-  .plans-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-
-  .plan-card {
-    background: var(--card);
-    border-radius: 16px;
-    padding: 20px;
-    border: 1px solid #1b1b1b;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-    cursor: pointer;
-  }
-
-  .plan-card:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 12px 30px rgba(0, 255, 136, 0.4);
-    background: linear-gradient(135deg, #0b0b0b, #111111);
-  }
-
-  .plan-card h3 {
-    color: var(--accent);
-    margin-bottom: 8px;
-    font-size: clamp(1.2rem, 1.5vw, 1.5rem);
-  }
-
-  .plan-card p {
-    margin: 4px 0;
-    color: var(--muted);
-    font-size: clamp(.85rem, .9vw, .95rem);
-  }
-
-  .plan-card ul {
-    margin: 4px 0 0 18px;
-    color: var(--muted);
-  }
-
-  .plan-card ul li {
-    margin-bottom: 4px;
-  }
-</style>
-
-<!-- Updated Personal Training Plans Section -->
-<!-- Updated Personal Training Plans Section -->
-<section class="plans-grid">
-  <div class="plan-card">
-    <h3>1 Month Plan — ₹3,000</h3>
-    <p>Target: Beginners or those trying out personal training</p>
-    <p>Sessions per week: 3–4</p>
-    <p>Includes:</p>
-    <ul>
-      <li>Bodybuilding</li>
-      <li>Weight Loss</li>
-      <li>Weight Gain</li>
-      <li>Zumba</li>
-    </ul>
-  </div>
-
-  <div class="plan-card">
-    <h3>3 Months Plan — ₹8,000</h3>
-    <p>Target: Intermediate users or people serious about results</p>
-    <p>Sessions per week: 4–5</p>
-    <p>Includes:</p>
-    <ul>
-      <li>Nutrition Plan</li>
-      <li>Strength Training</li>
-      <li>Cardio</li>
-      <li>HIIT</li>
-    </ul>
-  </div>
-
-  <!-- 6 Months Plan Spanning Full Width -->
-  <div class="plan-card plan-card-wide">
-    <h3>6 Months Plan — ₹15,000</h3>
-    <p>Target: Serious gym-goers, noticeable transformation</p>
-    <p>Sessions per week: 5–6</p>
-    <p>Includes all services:</p>
-    <ul>
-     <li>Full-body Workout Plan</li>
-    <li>Nutrition & Diet Guidance</li>
-    <li>Monthly Progress Tracking</li>
-    <li>Exclusive 1-on-1 Coaching</li>
-    </ul>
-  </div>
-</section>
-
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Join BG-FITNESS</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
 <style>
-  .plans-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-
-  .plan-card {
-    background: var(--card);
-    border-radius: 16px;
-    padding: 20px;
-    border: 1px solid #1b1b1b;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-    cursor: pointer;
-  }
-
-  .plan-card:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 12px 30px rgba(0, 255, 136, 0.4);
-    background: linear-gradient(135deg, #0b0b0b, #111111);
-  }
-
-  .plan-card h3 {
-    color: var(--accent);
-    margin-bottom: 8px;
-    font-size: clamp(1.2rem, 1.5vw, 1.5rem);
-  }
-
-  .plan-card p {
-    margin: 4px 0;
-    color: var(--muted);
-    font-size: clamp(.85rem, .9vw, .95rem);
-  }
-
-  .plan-card ul {
-    margin: 4px 0 0 18px;
-    color: var(--muted);
-  }
-
-  .plan-card ul li {
-    margin-bottom: 4px;
-  }
-
-  /* Make 6-month card rectangular and span full width on grid */
-  .plan-card-wide {
-    grid-column: 1 / -1; /* spans all columns */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  aside ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px; /* spacing between items */
-  list-style: none; /* optional for clean look */
-  padding-left: 0;
+:root{
+  --bg:#000;
+  --card:#111;
+  --accent:#00ff88;
+  --muted:#b7b7b7;
+  --text:#fff;
 }
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Montserrat",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  padding:24px;
+  font-size:clamp(15px,1.2vw,18px);
+}
+header{text-align:center;margin-bottom:16px;}
+h1{ color:var(--accent); font-size:clamp(2rem,4vw,2.6rem); margin:0 0 6px; }
+p.lead{ color:var(--muted); margin:0 0 18px; }
 
+.layout{ max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 360px; gap:20px; }
+@media(max-width:900px){ .layout{ grid-template-columns:1fr; padding-bottom:40px; } }
+
+.card{ background:var(--card); border-radius:12px; padding:18px; border:1px solid #1b1b1b; box-shadow:0 8px 30px rgba(0,0,0,.5); }
+.muted{ color:var(--muted); font-size:clamp(.85rem,.9vw,.95rem); }
+
+form label{ display:block; margin:10px 0 6px; font-weight:600; font-size:clamp(.95rem,1vw,1rem); }
+input,select,textarea{
+  width:100%; padding:11px 12px; border-radius:10px; border:1px solid #222;
+  background:#0b0b0b; color:var(--text); font-size:clamp(.95rem,1vw,1rem);
+}
+textarea{ min-height:86px; resize:vertical; }
+.btn{ display:inline-block; width:100%; padding:12px; border-radius:10px; border:none;
+  background:var(--accent); color:#002d18; font-weight:800; cursor:pointer;
+  font-size:clamp(.95rem,1vw,1.05rem); }
+.btn:disabled { background:#333; color:#777; cursor:not-allowed; opacity:0.6; }
+.logo { display:inline-flex; align-items:center; gap:8px; font-size:clamp(1.2rem, 2vw, 2.5rem); white-space:nowrap; }
+.logo img { height:clamp(40px, 8vw, 80px); }
+
+/* Plan card styling */
+.plan-card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: clamp(12px, 2vw, 20px);
+  border:1px solid #1b1b1b;
+  box-shadow:0 6px 20px rgba(0,0,0,.5);
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+  margin-top:12px;
+}
+.plan-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 255, 136, 0.4);
+  background: linear-gradient(135deg, #0b0b0b, #111111);
+}
+.plan-card h3 { color: var(--accent); margin-bottom:6px; font-size: clamp(1rem, 3vw, 1.5rem); }
+.plan-card p, .plan-card ul li { font-size: clamp(.75rem, 1.8vw, .95rem); color: var(--muted); margin:4px 0; }
+.plan-card ul { padding-left:20px; margin:4px 0; }
+
+/* Aside list style */
+aside ul {
+  display: flex; flex-wrap: wrap; gap:10px; list-style:none; padding-left:0;
+}
 aside ul li {
-  background: #111;
-  padding: 6px 10px;
-  border-radius: 8px;
-  color: var(--muted);
+  background:#111; padding:6px 10px; border-radius:8px; color:var(--muted);
   font-size: clamp(.8rem, .9vw, .95rem);
 }
-.plan-card-12month {
-  padding: 16px; /* reduced padding */
-  line-height: 1.3; /* tighter text */
-}
+
+/* Modal */
+.modal-backdrop{ position:fixed; inset:0; display:none; align-items:center; justify-content:center;
+  background:rgba(0,0,0,.7); z-index:1200; padding:20px; }
+.modal{ background:var(--card); padding:18px; border-radius:12px; max-width:520px; width:100%; text-align:center;
+  border:1px solid #232323; }
+.modal img{ width:320px; max-width:100%; border-radius:12px; border:4px solid var(--accent); }
+.modal .close{ margin-top:12px; padding:10px 16px; background:#222; color:var(--muted); border-radius:8px; border:none; cursor:pointer; }
 
 </style>
-      <!-- Booking Form -->
-      <section class="card" aria-labelledby="join-title">
-        <h2 id="join-title" style="color:var(--accent); margin:0 0 10px;">Join BG-FITNESS</h2>
-        <p class="muted">Fill in your details and select your training plan to proceed.</p>
+</head>
+<body>
+<header>
+  <h1 class="logo"><img src="bG-images/Logo.png" alt="BG-FITNESS Logo" loading="lazy">BG-FITNESS</h1>
+  <p class="lead">Book Your 1-on-1 Fitness Coaching Session Today!</p>
+</header>
 
-        <form id="joinForm" novalidate>
-          <label for="name">Full Name *</label>
-          <input id="name" name="name" type="text" required />
+<main class="layout">
+  <!-- left column -->
+  <div>
+    <!-- Booking Form -->
+    <section class="card" aria-labelledby="join-title">
+      <h2 id="join-title" style="color:var(--accent); margin:0 0 10px;">Join BG-FITNESS</h2>
+      <p class="muted">Fill in your details and select your training plan to proceed.</p>
+      <form id="joinForm" novalidate>
+        <label for="name">Full Name *</label>
+        <input id="name" name="name" type="text" required />
 
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-            <div>
-              <label for="age">Age *</label>
-              <input id="age" name="age" type="number" min="10" max="100" required />
-            </div>
-            <div>
-              <label for="gender">Gender *</label>
-              <select id="gender" name="gender" required>
-                <option value="">Select</option> 
-                <option>Male</option>
-                <option>Female</option>
-                <option>Prefer not to say</option>
-              </select>
-            </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <div>
+            <label for="age">Age *</label>
+            <input id="age" name="age" type="number" min="10" max="100" required />
           </div>
-
-          <label for="email">Email *</label>
-          <input id="email" name="email" type="email" required />
-
-          <label for="phone">Phone Number *</label>
-          <input id="phone" name="phone" type="tel" required />
-
-          <label for="goal">Primary Fitness Goal *</label>
-          <input id="goal" name="goal" type="text" required placeholder="e.g., Weight loss, Strength" />
-
-          <label for="plan">Choose Training Plan *</label>
-          <select id="plan" name="plan" required>
-            <option value="3000">1 Month — ₹3,000</option>
-            <option value="8000">3 Months — ₹8,000</option>
-            <option value="15000">6 Months — ₹15,000</option>
-            <option value="28000">12 Months — ₹28,000</option>
-          </select>
-
-          <div style="margin-top:12px;">
-            <button id="submitBtn" class="btn" type="submit" disabled>Submit &amp; Send to WhatsApp</button>
-            <p style="text-align:center;">Click <b>‘Submit & Send to WhatsApp’</b> to confirm your booking instantly.</p>
+          <div>
+            <label for="gender">Gender *</label>
+            <select id="gender" name="gender" required>
+              <option value="">Select</option> 
+              <option>Male</option>
+              <option>Female</option>
+              <option>Prefer not to say</option>
+            </select>
           </div>
-        </form>
-      </section>
-    </div>
-
-    <!-- right column: coach info -->
-    <aside class="card">
-      <h2>Your Coach</h2>
-      <div class="inline" style="align-items:flex-start; gap:14px;">
-        <img src="bG-images/17564854994131.jpg" width="140" height="140" alt="Coach photo" style="border-radius:50%; border:2px solid var(--accent);" />
-        <div>
-          <h3 style="margin:0 0 6px;">B.G.Godson</h3>
-          <p class="muted" style="margin:0 0 8px;">Certified Personal Trainer • 7+ years • Strength & Conditioning</p>
-          <p class="muted" style="margin:0 0 8px;">DM on WhatsApp for schedules and transformations.</p>
         </div>
-      </div>
 
-      <hr style="border:none;border-top:1px solid #1e1e1e;margin:16px 0;" />
+        <label for="email">Email *</label>
+        <input id="email" name="email" type="email" required />
 
-      <h2>Services</h2>
-      <ul style="margin:0; padding-left:18px; color:var(--muted);">
-        <li>1-on-1 Personal Training</li>
-        <li>Zumba</li>
-        <li>Custom Diet & Nutrition</li>
-        <li>Strength & Mobility Programs</li>
-      </ul>
+        <label for="phone">Phone Number *</label>
+        <input id="phone" name="phone" type="tel" required />
 
-      <hr style="border:none;border-top:1px solid #1e1e1e;margin:16px 0;" />
+        <label for="goal">Primary Fitness Goal *</label>
+        <input id="goal" name="goal" type="text" required placeholder="e.g., Weight loss, Strength" />
 
-      <h2>Contact</h2>
-      <p class="muted" style="margin:0 0 4px;">Phone: +91 99409 09869</p>
-      <p class="muted" style="margin:0 0 4px;">Email: godsonzion0@gmail.com</p>
-      <p class="muted" style="margin:0;">Address: BG-FITNESS, Annie complex, First Floor, Melakrishnanputhoor Junction</p>
-    </aside>
-  </main>
+        <label for="plan">Choose Training Plan *</label>
+        <select id="plan" name="plan" required>
+          <option value="">Select a Plan</option>
+          <option value="1">1 Month — ₹3,000</option>
+          <option value="3">3 Months — ₹8,000</option>
+          <option value="6">6 Months — ₹15,000</option>
+        </select>
 
-  <!-- QR modal -->
-  <div class="modal-backdrop" id="qrModal">
-    <div class="modal">
-      <h3 id="qrTitle" style="color:var(--accent)">Scan & Pay</h3>
-      <img id="qrImage" src="bG-images/Scanner.jpg" alt="Payment QR code" />
-      <p>or <br> <b>UPI ID: q408893617@ybi</b> </p>
-      <div>
-        <button class="close" id="closeModalBtn" type="button">Close</button>
-      </div>
-    </div>
+        <!-- Dynamic Plan Card -->
+        <div id="planDetails" class="plan-card" style="display:none;"></div>
+
+        <div style="margin-top:12px;">
+          <button id="submitBtn" class="btn" type="submit" disabled>Submit &amp; Send to WhatsApp</button>
+          <p style="text-align:center;">Click <b>‘Submit & Send to WhatsApp’</b> to confirm your booking instantly.</p>
+        </div>
+      </form>
+    </section>
   </div>
 
-  <script>
-    const coachNumber = "919940909869"; 
-    const qrModal = document.getElementById('qrModal');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const form = document.getElementById('joinForm');
-    const planSelect = document.getElementById('plan');
-    const submitBtn = document.getElementById('submitBtn');
+  <!-- right column -->
+  <aside class="card">
+    <h2>Your Coach</h2>
+    <div class="inline" style="align-items:flex-start; gap:14px;">
+      <img src="bG-images/17564854994131.jpg" width="140" height="140" alt="Coach photo" style="border-radius:50%; border:2px solid var(--accent);" />
+      <div>
+        <h3 style="margin:0 0 6px;">B.G.Godson</h3>
+        <p class="muted" style="margin:0 0 8px;">Certified Personal Trainer • 7+ years • Strength & Conditioning</p>
+        <p class="muted" style="margin:0 0 8px;">DM on WhatsApp for schedules and transformations.</p>
+      </div>
+    </div>
 
-    // Enable button only if form is valid
-    form.addEventListener('input', () => {
-      submitBtn.disabled = !form.checkValidity();
-    });
+    <hr style="border:none;border-top:1px solid #1e1e1e;margin:16px 0;" />
+    <h2>Services</h2>
+    <ul>
+      <li>1-on-1 Personal Training</li>
+      <li>Zumba</li>
+      <li>Custom Diet & Nutrition</li>
+      <li>Strength & Mobility Programs</li>
+    </ul>
 
-    closeModalBtn.addEventListener('click', () => {
-      qrModal.style.display = 'none';
-    });
-    qrModal.addEventListener('click', (ev) => {
-      if (ev.target === qrModal) qrModal.style.display = 'none';
-    });
+    <hr style="border:none;border-top:1px solid #1e1e1e;margin:16px 0;" />
+    <h2>Contact</h2>
+    <p class="muted">Phone: +91 99409 09869</p>
+    <p class="muted">Email: godsonzion0@gmail.com</p>
+    <p class="muted">Address: BG-FITNESS, Annie complex, First Floor, Melakrishnanputhoor Junction</p>
+  </aside>
+</main>
 
-    // Form submit
-    form.addEventListener('submit', (ev) => {
-      ev.preventDefault();
-      if (!form.checkValidity()) { form.reportValidity(); return; }
+<script>
+const coachNumber = "919940909869"; 
+const form = document.getElementById('joinForm');
+const planSelect = document.getElementById('plan');
+const planDetails = document.getElementById('planDetails');
+const submitBtn = document.getElementById('submitBtn');
 
-      const name = document.getElementById('name').value.trim();
-      const age = document.getElementById('age').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const gender = document.getElementById('gender').value.trim();
-      const goal = document.getElementById('goal').value.trim();
-      const plan = planSelect.selectedOptions[0].text;
+// Plan information
+const plansInfo = {
+  "1": {
+    title: "1 Month Plan — ₹3,000",
+    description: "Target: Beginners or those trying out personal training",
+    sessions: "Sessions per week: 3–4",
+    features: ["Bodybuilding", "Weight Loss", "Weight Gain", "Zumba"]
+  },
+  "3": {
+    title: "3 Months Plan — ₹8,000",
+    description: "Target: Intermediate users or people serious about results",
+    sessions: "Sessions per week: 4–5",
+    features: ["Nutrition Plan", "Strength Training", "Cardio", "HIIT"]
+  },
+  "6": {
+    title: "6 Months Plan — ₹15,000",
+    description: "Target: Serious gym-goers, noticeable transformation",
+    sessions: "Sessions per week: 5–6",
+    features: ["Full-body Workout Plan", "Nutrition & Diet Guidance", "Monthly Progress Tracking", "Exclusive 1-on-1 Coaching"]
+  }
+};
 
-      const lines = [
-        '*BG-FITNESS — New Coaching Request*',
-        `Name: ${name}`,
-        `Age: ${age}`,
-        `Email: ${email}`,
-        `Phone: ${phone}`,
-        `Gender: ${gender}`,
-        `Fitness Goal: ${goal}`,
-        `Selected Plan: ${plan}`,
-        ''
-      ];
+// Display the plan card when user selects
+planSelect.addEventListener('change', () => {
+  const value = planSelect.value;
+  if(plansInfo[value]){
+    const plan = plansInfo[value];
+    planDetails.innerHTML = `
+      <h3>${plan.title}</h3>
+      <p>${plan.description}</p>
+      <p>${plan.sessions}</p>
+      <ul>${plan.features.map(f=>`<li>${f}</li>`).join('')}</ul>
+    `;
+    planDetails.style.display = 'block';
+  } else {
+    planDetails.style.display = 'none';
+  }
+});
 
-      const message = encodeURIComponent(lines.join('\n'));
-      const waUrl = `https://wa.me/${coachNumber}?text=${message}`;
-      window.open(waUrl, '_blank', 'noopener');
-    });
-  </script>
+// Enable submit button if form is valid
+form.addEventListener('input', () => {
+  submitBtn.disabled = !form.checkValidity();
+});
+
+// Submit form & open WhatsApp
+form.addEventListener('submit', (ev) => {
+  ev.preventDefault();
+  if(!form.checkValidity()){ form.reportValidity(); return; }
+  const name = document.getElementById('name').value.trim();
+  const age = document.getElementById('age').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const gender = document.getElementById('gender').value.trim();
+  const goal = document.getElementById('goal').value.trim();
+  const planText = planSelect.selectedOptions[0].text;
+  const message = encodeURIComponent([
+    '*BG-FITNESS — New Coaching Request*',
+    `Name: ${name}`,
+    `Age: ${age}`,
+    `Email: ${email}`,
+    `Phone: ${phone}`,
+    `Gender: ${gender}`,
+    `Fitness Goal: ${goal}`,
+    `Selected Plan: ${planText}`
+  ].join('\n'));
+  window.open(`https://wa.me/${coachNumber}?text=${message}`,'_blank','noopener');
+});
+</script>
 </body>
 </html>
