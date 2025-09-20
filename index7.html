@@ -100,7 +100,7 @@
         </select>
 
         <div style="margin-top:12px;">
-          <button type="button" id="payBtn" class="btn">Pay ₹3,000</button><br>
+<!--           <button type="button" id="payBtn" class="btn">Pay ₹3,000</button><br> -->
           <div style="margin-top:14px;">
             <button id="submitBtn" class="btn" type="submit" disabled>Submit &amp; Send to WhatsApp</button>
             <p style="text-align:center;">Click <b>‘Submit & Send to WhatsApp’</b> and share your payment screenshot to confirm booking.</p>
@@ -155,23 +155,23 @@
   <script>
     const coachNumber = "919940909869"; 
     const qrModal = document.getElementById('qrModal');
-    const payBtn = document.getElementById('payBtn');
+    // const payBtn = document.getElementById('payBtn');
     const closeModalBtn = document.getElementById('closeModalBtn');
     const form = document.getElementById('joinForm');
     const planSelect = document.getElementById('plan');
     const qrTitle = document.getElementById('qrTitle');
 
     // Update button instantly when plan changes
-    planSelect.addEventListener('change', () => {
-      payBtn.textContent = `Pay ₹${planSelect.value}`;
-      qrTitle.textContent = `Scan & Pay ₹${planSelect.value}`;
-    });
+    // planSelect.addEventListener('change', () => {
+    //   payBtn.textContent = `Pay ₹${planSelect.value}`;
+    //   qrTitle.textContent = `Scan & Pay ₹${planSelect.value}`;
+    // });
 
     // Show QR modal
-    payBtn.addEventListener('click', () => {
-      qrModal.style.display = 'flex';
-      document.getElementById('submitBtn').disabled = false; 
-    });
+    // payBtn.addEventListener('click', () => {
+    //   qrModal.style.display = 'flex';
+    //   document.getElementById('submitBtn').disabled = false; 
+    // });
 
     closeModalBtn.addEventListener('click', () => {
       qrModal.style.display = 'none';
