@@ -10,6 +10,7 @@
       --bg:#000;
       --card:#111;
       --accent:#00ff88;
+      --accent-d:#00cc66;
       --muted:#b7b7b7;
       --text:#fff;
     }
@@ -28,64 +29,96 @@
     h1{ color:var(--accent); font-size:clamp(2rem,4vw,2.6rem); margin:0 0 6px; }
     p.lead{ color:var(--muted); margin:0 0 18px }
     .card{ background:var(--card); border-radius:12px; padding:18px; border:1px solid #1b1b1b; box-shadow:0 8px 30px rgba(0,0,0,.5); }
-    form label{ display:block; margin:10px 0 6px; font-weight:600; }
-    input,select{
+    form label{ display:block; margin:10px 0 6px; font-weight:600; font-size:clamp(.95rem,1vw,1rem); }
+    input,select,textarea{
       width:100%; padding:11px 12px; border-radius:10px; border:1px solid #222;
-      background:#0b0b0b; color:var(--text);
+      background:#0b0b0b; color:var(--text); font-size:clamp(.95rem,1vw,1rem);
     }
+    textarea{ min-height:86px; resize:vertical }
+    .muted{ color:var(--muted); font-size:clamp(.85rem,.9vw,.95rem) }
     .btn{ display:inline-block; width:100%; padding:12px; border-radius:10px; border:none;
-      background:var(--accent); color:#002d18; font-weight:800; cursor:pointer; }
-    .muted{ color:var(--muted); font-size:0.9rem }
-    .logo {display:inline-flex; align-items:center; gap:8px;}
-    .logo img {height:60px;}
+      background:var(--accent); color:#002d18; font-weight:800; cursor:pointer;
+      font-size:clamp(.95rem,1vw,1.05rem); }
+    .preview{ margin-top:10px; border-radius:10px; border:1px dashed #222; padding:12px; min-height:120px;
+      display:grid; place-items:center; background:#070707; color:var(--muted); }
+    .modal-backdrop{ position:fixed; inset:0; display:none; align-items:center; justify-content:center;
+      background:rgba(0,0,0,.7); z-index:1200; padding:20px; }
+    .modal{ background:var(--card); padding:18px; border-radius:12px; max-width:520px; width:100%; text-align:center;
+      border:1px solid #232323; }
+    .modal img{ width:320px; max-width:100%; border-radius:12px; border:4px solid var(--accent) }
+    .modal .close{ margin-top:12px; padding:10px 16px; background:#222; color:var(--muted); border-radius:8px; border:none; cursor:pointer }
+    .btn:disabled {
+      background: #333;
+      color: #777;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: clamp(1.2rem, 2vw, 2.5rem);
+      white-space: nowrap;
+    }
+    .logo img { height: clamp(40px, 8vw, 80px); }
   </style>
 </head>
 <body>
   <header>
-    <h1 class="logo"><img src="bG-images/Logo.png" alt="BG-FITNESS Logo">BG-FITNESS</h1>
+    <h1 class="logo"> <img src="bG-images/Logo.png" alt="BG-FITNESS Logo" loading="lazy">BG-FITNESS</h1>
     <p class="lead">Book Your 1-on-1 Fitness Coaching Session Today!</p>
   </header>
-
   <main class="layout">
     <!-- left: booking form -->
-    <section class="card">
-      <h2 style="color:var(--accent); margin:0 0 10px;">Join BG-FITNESS</h2>
-      <p class="muted">Fill in your details and pay to confirm your spot.</p>
+    <section class="card" aria-labelledby="join-title">
+      <h2 id="join-title" style="color:var(--accent); margin:0 0 10px;">Join BG-FITNESS</h2>
+      <p class="muted">Fill in your details and complete the payment to proceed.</p>
 
       <form id="joinForm" novalidate>
         <label for="name">Full Name *</label>
-        <input id="name" type="text" required>
+        <input id="name" name="name" type="text" required />
 
-        <label for="age">Age *</label>
-        <input id="age" type="number" min="10" max="100" required>
-
-        <label for="gender">Gender *</label>
-        <select id="gender" required>
-          <option value="">Select</option>
-          <option>Male</option>
-          <option>Female</option>
-          <option>Prefer not to say</option>
-        </select>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <div>
+            <label for="age">Age *</label>
+            <input id="age" name="age" type="number" min="10" max="100" required />
+          </div>
+          <div>
+            <label for="gender">Gender *</label>
+            <select id="gender" name="gender" required>
+              <option value="">Select</option> 
+              <option>Male</option>
+              <option>Female</option>
+              <option>Prefer not to say</option>
+            </select>
+          </div>
+        </div>
 
         <label for="email">Email *</label>
-        <input id="email" type="email" required>
+        <input id="email" name="email" type="email" required />
 
         <label for="phone">Phone Number *</label>
-        <input id="phone" type="tel" required>
+        <input id="phone" name="phone" type="tel" required />
 
         <label for="goal">Primary Fitness Goal *</label>
-        <input id="goal" type="text" required placeholder="e.g., Weight loss, Strength">
+        <input id="goal" name="goal" type="text" required placeholder="e.g., Weight loss, Strength" />
 
+        <!-- New Plan Selector -->
         <label for="plan">Choose Training Plan *</label>
-        <select id="plan" required>
+        <select id="plan" name="plan" required>
           <option value="3000">1 Month — ₹3,000</option>
           <option value="7777">2 Months — ₹7,777</option>
           <option value="11111">6 Months — ₹11,111</option>
           <option value="22222">12 Months — ₹22,222</option>
         </select>
 
+        <div style="margin-top:12px;">
+          <button type="button" id="payBtn" class="btn">Pay ₹3,000</button><br>
+        </div>
+
         <div style="margin-top:14px;">
-          <button id="payBtn" class="btn" type="button">Pay & Join</button>
+          <button id="submitBtn" class="btn" type="submit" disabled>Submit &amp; Send to WhatsApp</button>
+          <p style="text-align: center;">Click <b>‘Submit & Send to WhatsApp’</b> and share your payment screenshot to confirm booking.</p>
         </div>
       </form>
     </section>
@@ -93,15 +126,15 @@
     <!-- right: coach card -->
     <aside class="card">
       <h2>Your Coach</h2>
-      <div style="display:flex; gap:14px; align-items:flex-start;">
-        <img src="bG-images/17564854994131.jpg" width="120" style="border-radius:50%; border:2px solid var(--accent);">
+      <div class="inline" style="align-items:flex-start; gap:14px;">
+        <img src="bG-images/17564854994131.jpg" width="140" height="140" alt="Coach photo" style="border-radius:50%; border:2px solid var(--accent);" />
         <div>
-          <h3>Coach Name</h3>
-          <p class="muted">Certified Personal Trainer • 7+ years • Strength & Conditioning</p>
-          <p class="muted">DM on WhatsApp for schedules and transformations.</p>
+          <h3 style="margin:0 0 6px;">Coach Name</h3>
+          <p class="muted" style="margin:0 0 8px;">Certified Personal Trainer • 7+ years • Strength & Conditioning</p>
+          <p class="muted" style="margin:0 0 8px;">DM on WhatsApp for schedules and transformations.</p>
         </div>
       </div>
-      <hr style="border:none; border-top:1px solid #1e1e1e; margin:16px 0;">
+      <hr style="border:none;border-top:1px solid #1e1e1e;margin:16px 0;" />
       <h2>Services</h2>
       <ul style="margin:0; padding-left:18px; color:var(--muted);">
         <li>1-on-1 Personal Training</li>
@@ -109,19 +142,60 @@
         <li>Custom Diet & Nutrition</li>
         <li>Strength & Mobility Programs</li>
       </ul>
-      <hr style="border:none; border-top:1px solid #1e1e1e; margin:16px 0;">
+      <hr style="border:none;border-top:1px solid #1e1e1e;margin:16px 0;" />
       <h2>Contact</h2>
-      <p class="muted">Phone: +91 99409 09869</p>
-      <p class="muted">Email: godsonzion0@gmail.com</p>
+      <p class="muted" style="margin:0 0 4px;">Phone: +91 99409 09869</p>
+      <p class="muted" style="margin:0 0 4px;">Email: godsonzion0@gmail.com</p>
+      <p class="muted" style="margin:0;">Address: BG-FITNESS, Annie complex,First Floor,Melakrishnanputhoor Junction</p>
     </aside>
   </main>
 
+  <!-- QR modal -->
+  <div class="modal-backdrop" id="qrModal">
+    <div class="modal">
+      <h3 id="qrTitle" style="color:var(--accent)">Scan & Pay ₹3,000</h3>
+      <img id="qrImage" src="bG-images/Scanner.jpg" alt="Payment QR code" />
+      <p>or <br> <b>UPI ID: q408893617@ybi</b></p>
+      <div>
+        <button class="close" id="closeModalBtn" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     const coachNumber = "919940909869"; // without + for wa.me
-    const form = document.getElementById("joinForm");
-    const payBtn = document.getElementById("payBtn");
+    const qrModal = document.getElementById('qrModal');
+    const payBtn = document.getElementById('payBtn');
+    const qrTitle = document.getElementById('qrTitle');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const form = document.getElementById('joinForm');
+    const planSelect = document.getElementById('plan');
+    const submitBtn = document.getElementById('submitBtn');
 
-    payBtn.addEventListener("click", () => {
+    // Update pay button when plan changes
+    planSelect.addEventListener('change', () => {
+      const price = planSelect.value;
+      payBtn.textContent = `Pay ₹${price}`;
+    });
+
+    // Show QR modal
+    payBtn.addEventListener('click', () => {
+      const price = planSelect.value;
+      qrTitle.textContent = `Scan & Pay ₹${price}`;
+      qrModal.style.display = 'flex';
+      submitBtn.disabled = false; // ✅ Enable submit button
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      qrModal.style.display = 'none';
+    });
+    qrModal.addEventListener('click', (ev) => {
+      if (ev.target === qrModal) qrModal.style.display = 'none';
+    });
+
+    // Form submit
+    form.addEventListener('submit', (ev) => {
+      ev.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
 
       const name = document.getElementById('name').value.trim();
@@ -130,34 +204,26 @@
       const phone = document.getElementById('phone').value.trim();
       const gender = document.getElementById('gender').value.trim();
       const goal = document.getElementById('goal').value.trim();
-      const planSelect = document.getElementById('plan');
-      const price = planSelect.value;
-      const planText = planSelect.selectedOptions[0].text;
+      const plan = planSelect.selectedOptions[0].text;
 
-      // Step 1: open UPI payment
-      const upiId = "q408893617@ybi"; // your UPI ID
-      const upiLink = `upi://pay?pa=${upiId}&pn=BG-FITNESS&am=${price}&cu=INR`;
-      window.location.href = upiLink;
+      const lines = [
+        '*BG-FITNESS — New Coaching Request*',
+        `Name: ${name}`,
+        `Age: ${age}`,
+        `Email: ${email}`,
+        `Phone: ${phone}`,
+        `Gender: ${gender}`,
+        `Fitness Goal: ${goal}`,
+        `Selected Plan: ${plan}`,
+        '',
+        '"Sharing my screenshot below to confirm booking"'
+      ];
 
-      // Step 2: after payment, open WhatsApp confirmation
-      setTimeout(() => {
-        const lines = [
-          '*BG-FITNESS — New Coaching Request*',
-          `Name: ${name}`,
-          `Age: ${age}`,
-          `Email: ${email}`,
-          `Phone: ${phone}`,
-          `Gender: ${gender}`,
-          `Fitness Goal: ${goal}`,
-          `Selected Plan: ${planText}`,
-          '',
-          'I have completed the payment ✅'
-        ];
-        const message = encodeURIComponent(lines.join('\n'));
-        const waUrl = `https://wa.me/${coachNumber}?text=${message}`;
-        window.open(waUrl, '_blank', 'noopener');
-      }, 2000); // delay to allow payment app to open
+      const message = encodeURIComponent(lines.join('\n'));
+      const waUrl = `https://wa.me/${coachNumber}?text=${message}`;
+      window.open(waUrl, '_blank', 'noopener');
     });
   </script>
 </body>
 </html>
+ 
