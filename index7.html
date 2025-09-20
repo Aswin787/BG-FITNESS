@@ -151,65 +151,58 @@
       </div>
     </div>
   </div>
-
   <script>
-    const coachNumber = "919940909869"; 
-    const qrModal = document.getElementById('qrModal');
-    // const payBtn = document.getElementById('payBtn');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const form = document.getElementById('joinForm');
-    const planSelect = document.getElementById('plan');
-    const qrTitle = document.getElementById('qrTitle');
+  const coachNumber = "919940909869"; 
+  const qrModal = document.getElementById('qrModal');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const form = document.getElementById('joinForm');
+  const planSelect = document.getElementById('plan');
+  const qrTitle = document.getElementById('qrTitle');
+  const submitBtn = document.getElementById('submitBtn');
 
-    // Update button instantly when plan changes
-    // planSelect.addEventListener('change', () => {
-    //   payBtn.textContent = `Pay ₹${planSelect.value}`;
-    //   qrTitle.textContent = `Scan & Pay ₹${planSelect.value}`;
-    // });
+  // Enable button only if form is valid
+  form.addEventListener('input', () => {
+    submitBtn.disabled = !form.checkValidity();
+  });
 
-    // Show QR modal
-    // payBtn.addEventListener('click', () => {
-    //   qrModal.style.display = 'flex';
-    //   document.getElementById('submitBtn').disabled = false; 
-    // });
+  closeModalBtn.addEventListener('click', () => {
+    qrModal.style.display = 'none';
+  });
+  qrModal.addEventListener('click', (ev) => {
+    if (ev.target === qrModal) qrModal.style.display = 'none';
+  });
 
-    closeModalBtn.addEventListener('click', () => {
-      qrModal.style.display = 'none';
-    });
-    qrModal.addEventListener('click', (ev) => {
-      if (ev.target === qrModal) qrModal.style.display = 'none';
-    });
+  // Form submit
+  form.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
 
-    // Form submit
-    form.addEventListener('submit', (ev) => {
-      ev.preventDefault();
-      if (!form.checkValidity()) { form.reportValidity(); return; }
+    const name = document.getElementById('name').value.trim();
+    const age = document.getElementById('age').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const gender = document.getElementById('gender').value.trim();
+    const goal = document.getElementById('goal').value.trim();
+    const plan = planSelect.selectedOptions[0].text;
 
-      const name = document.getElementById('name').value.trim();
-      const age = document.getElementById('age').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const gender = document.getElementById('gender').value.trim();
-      const goal = document.getElementById('goal').value.trim();
-      const plan = planSelect.selectedOptions[0].text;
+    const lines = [
+      '*BG-FITNESS — New Coaching Request*',
+      `Name: ${name}`,
+      `Age: ${age}`,
+      `Email: ${email}`,
+      `Phone: ${phone}`,
+      `Gender: ${gender}`,
+      `Fitness Goal: ${goal}`,
+      `Selected Plan: ${plan}`,
+      ''
+    ];
 
-      const lines = [
-        '*BG-FITNESS — New Coaching Request*',
-        `Name: ${name}`,
-        `Age: ${age}`,
-        `Email: ${email}`,
-        `Phone: ${phone}`,
-        `Gender: ${gender}`,
-        `Fitness Goal: ${goal}`,
-        `Selected Plan: ${plan}`,
-        ''
-      ];
+    const message = encodeURIComponent(lines.join('\n'));
+    const waUrl = `https://wa.me/${coachNumber}?text=${message}`;
+    window.open(waUrl, '_blank', 'noopener');
+  });
+</script>
 
-      const message = encodeURIComponent(lines.join('\n'));
-      const waUrl = `https://wa.me/${coachNumber}?text=${message}`;
-      window.open(waUrl, '_blank', 'noopener');
-    });
-  </script>
 </body>
 </html>
 
