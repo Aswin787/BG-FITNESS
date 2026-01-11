@@ -405,7 +405,7 @@
 
   </style> 
 </head>
-  <script>
+  <!-- <script>
   const transformationImages = [
     "bG-images/Godson-T (1).webp",
     "bG-images/Godson-s6 (1).webp",
@@ -539,7 +539,7 @@
     card.appendChild(img);
     achievementsTrack.appendChild(card);
   });
-</script>
+</script> -->
 
 
 
@@ -673,6 +673,78 @@
   };
 </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+    // TRANSFORMATIONS
+    const transformationImages = [
+      "bG-images/Godson-T (1).webp",
+      "bG-images/Godson-s6 (1).webp",
+      "bG-images/Godson-U (1).webp",
+      "bG-images/Godson-U6 (1).webp",
+      "bG-images/Godson-Shirt (1).webp",
+      "bG-images/Godson-BB (1).webp"
+    ];
+
+    const transformationTrack = document.getElementById("transformations-track");
+
+    [...transformationImages, ...transformationImages, ...transformationImages]
+      .forEach(src => {
+        const card = document.createElement("div");
+        card.className = "infinite-scroll-card";
+
+        const img = document.createElement("img");
+        img.src = src;
+        img.loading = "lazy";
+        img.alt = "Transformation";
+
+        card.appendChild(img);
+        transformationTrack.appendChild(card);
+      });
+
+
+    // ACHIEVEMENTS
+    const achievementImages = [
+      "bG-images/1.webp",
+      "bG-images/2.webp",
+      "bG-images/3.webp",
+      "bG-images/4.webp",
+      "bG-images/5.webp",
+      "bG-images/6.webp",
+      "bG-images/7.webp",
+      "bG-images/8.webp",
+      "bG-images/9.webp",
+      "bG-images/10.webp",
+      "bG-images/11.webp",
+      "bG-images/12.webp",
+      "bG-images/13.webp",
+      "bG-images/14.webp",
+      "bG-images/15.webp",
+      "bG-images/16.webp",
+      "bG-images/17.webp",
+      "bG-images/18.webp",
+      "bG-images/19.webp",
+      "bG-images/20.webp"
+    ];
+
+    const achievementsTrack = document.getElementById("achievements-track");
+
+    [...achievementImages, ...achievementImages, ...achievementImages]
+      .forEach(src => {
+        const card = document.createElement("div");
+        card.className = "infinite-scroll-card";
+
+        const img = document.createElement("img");
+        img.src = src;
+        img.loading = "lazy";
+        img.alt = "Achievement";
+
+        card.appendChild(img);
+        achievementsTrack.appendChild(card);
+      });
+
+  });
+</script>
 
 </body>
 </html>
