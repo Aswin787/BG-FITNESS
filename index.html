@@ -193,40 +193,53 @@
       color: #00ff88;
       margin-bottom: 40px;
     }
-    .infinite-scroll-container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      overflow: hidden;
-      position: relative;
-      background: #111;
-      border-radius: 12px;
-      padding: 20px 0;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    }
-    .infinite-scroll-track {
-      display: flex;
-      gap: 20px;
-      animation: scroll-cards 80s linear infinite; /*18s*/
-      padding: 0 20px;
-    }
-    .infinite-scroll-card {
-      flex: 0 0 400px;
-      min-height: 500px;
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-      background: #222;
-    }
-    .infinite-scroll-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .infinite-scroll-card:hover {
-      transform: translateY(-5px);
-    }
+   .infinite-scroll-container {
+  width: 100%;
+  overflow: hidden;
+  background: #111;
+  border-radius: 12px;
+  padding: 20px 0;
+}
+
+.infinite-scroll-track {
+  display: flex;
+  width: max-content;
+  gap: 20px;
+  animation: scroll-left 40s linear infinite;
+}
+
+.infinite-scroll-card {
+  flex-shrink: 0;
+  width: 400px;
+  height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #222;
+}
+
+.infinite-scroll-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .infinite-scroll-card {
+    width: 200px;
+    height: 250px;
+  }
+}
+
     @keyframes scroll-cards {
       0% { transform: translateX(0); }
       100% { transform: translateX(calc(-1000px * 25 - 120px)); } /*1000 6 120*/ /*30*/
@@ -405,144 +418,6 @@
 
   </style> 
 </head>
-  <!-- <script>
-  const transformationImages = [
-    "bG-images/Godson-T (1).webp",
-    "bG-images/Godson-s6 (1).webp",
-    "bG-images/Godson-U (1).webp",
-    "bG-images/Godson-U6 (1).webp",
-    "bG-images/Godson-Shirt (1).webp",
-    "bG-images/Godson-BB (1).webp"
-  ];
-
-  const track = document.getElementById("transformations-track");
-
-  // duplicate images for smooth infinite scroll
-  const imagesToRender = [...transformationImages, ...transformationImages, ...transformationImages];
-
-  imagesToRender.forEach(src => {
-    const card = document.createElement("div");
-    card.className = "infinite-scroll-card";
-
-    const img = document.createElement("img");
-    img.src = src;
-    img.loading = "lazy";
-    img.alt = "Transformation";
-
-    card.appendChild(img);
-    track.appendChild(card);
-  });
-</script>
-  <script>
-  const transformationImages = [
-    "bG-images/Godson-T (1).webp",
-    "bG-images/Godson-s6 (1).webp",
-    "bG-images/Godson-U (1).webp",
-    "bG-images/Godson-U6 (1).webp",
-    "bG-images/Godson-Shirt (1).webp",
-    "bG-images/Godson-BB (1).webp"
-  ];
-
-  const track = document.getElementById("transformations-track");
-
-  // duplicate images for smooth infinite scroll
-  const imagesToRender = [...transformationImages, ...transformationImages, ...transformationImages];
-
-  imagesToRender.forEach(src => {
-    const card = document.createElement("div");
-    card.className = "infinite-scroll-card";
-
-    const img = document.createElement("img");
-    img.src = src;
-    img.loading = "lazy";
-    img.alt = "Transformation";
-
-    card.appendChild(img);
-    track.appendChild(card);
-  });
-</script>
-  <script>
-  const achievementImages = [
-    "bG-images/1.webp",
-    "bG-images/2.webp",
-    "bG-images/3.webp",
-    "bG-images/4.webp",
-    "bG-images/5.webp",
-    "bG-images/6.webp",
-    "bG-images/7.webp",
-    "bG-images/8.webp",
-    "bG-images/9.webp",
-    "bG-images/10.webp",
-    "bG-images/11.webp",
-    "bG-images/12.webp",
-    "bG-images/13.webp",
-    "bG-images/14.webp",
-    "bG-images/15.webp",
-    "bG-images/16.webp",
-    "bG-images/17.webp",
-    "bG-images/18.webp",
-    "bG-images/19.webp",
-    "bG-images/20.webp",
-    "bG-images/21.webp",
-    "bG-images/22.webp",
-    "bG-images/23.webp",
-    "bG-images/24.webp",
-    "bG-images/25.webp",
-    "bG-images/26.webp",
-    "bG-images/27.webp",
-    "bG-images/28.webp",
-    "bG-images/29.webp",
-    "bG-images/30.webp",
-    "bG-images/31.webp",
-    "bG-images/32.webp",
-    "bG-images/33.webp",
-    "bG-images/34.webp",
-    "bG-images/35.webp",
-    "bG-images/36.webp",
-    "bG-images/37.webp",
-    "bG-images/38.webp",
-    "bG-images/39.webp",
-    "bG-images/40.webp",
-    "bG-images/41.webp",
-    "bG-images/42.webp",
-    "bG-images/43.webp",
-    "bG-images/44.webp",
-    "bG-images/45.webp",
-    "bG-images/46.webp",
-    "bG-images/47.webp",
-    "bG-images/48.webp",
-    "bG-images/49.webp",
-    "bG-images/50.webp",
-    "bG-images/51.webp",
-    "bG-images/52.webp",
-    "bG-images/53.webp"
-  ];
-
-  const achievementsTrack = document.getElementById("achievements-track");
-
-  // duplicate for infinite scrolling
-  const achievementRenderList = [
-    ...achievementImages,
-    ...achievementImages,
-    ...achievementImages
-  ];
-
-  achievementRenderList.forEach(src => {
-    const card = document.createElement("div");
-    card.className = "infinite-scroll-card";
-
-    const img = document.createElement("img");
-    img.src = src;
-    img.loading = "lazy";
-    img.alt = "Achievement";
-
-    card.appendChild(img);
-    achievementsTrack.appendChild(card);
-  });
-</script> -->
-
-
-
 <body>
 
 <header>
@@ -569,19 +444,14 @@
   <h2>💪 My Transformations</h2>
 
   <div class="infinite-scroll-container">
-    <div class="infinite-scroll-track" id="transformations-track">
-      <!-- Images injected by JS -->
-    </div>
+    <div class="infinite-scroll-track" id="gallery-transformations"></div>
   </div>
 </section>
-
 <section class="gallery-section">
   <h2>Our Achievements</h2>
 
   <div class="infinite-scroll-container">
-    <div class="infinite-scroll-track" id="achievements-track">
-      <!-- Images injected by JS -->
-    </div>
+    <div class="infinite-scroll-track" id="gallery-achievements"></div>
   </div>
 </section>
 
@@ -674,110 +544,52 @@
 </script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-    // TRANSFORMATIONS
-    const transformationImages = [
-      "bG-images/Godson-T (1).webp",
-      "bG-images/Godson-s6 (1).webp",
-      "bG-images/Godson-U (1).webp",
-      "bG-images/Godson-U6 (1).webp",
-      "bG-images/Godson-Shirt (1).webp",
-      "bG-images/Godson-BB (1).webp"
-    ];
+  /* ===== IMAGE ARRAYS ===== */
 
-    const transformationTrack = document.getElementById("transformations-track");
+  const transformations = [
+    "bG-images/Godson-T (1).webp",
+    "bG-images/Godson-s6 (1).webp",
+    "bG-images/Godson-U (1).webp",
+    "bG-images/Godson-U6 (1).webp",
+    "bG-images/Godson-Shirt (1).webp",
+    "bG-images/Godson-BB (1).webp"
+  ];
 
-    [...transformationImages, ...transformationImages, ...transformationImages]
-      .forEach(src => {
-        const card = document.createElement("div");
-        card.className = "infinite-scroll-card";
+  const achievements = [];
+  for (let i = 1; i <= 53; i++) {
+    achievements.push(`bG-images/${i}.webp`);
+  }
 
-        const img = document.createElement("img");
-        img.src = src;
-        img.loading = "lazy";
-        img.alt = "Transformation";
+  /* ===== FUNCTION TO BUILD INFINITE GALLERY ===== */
 
-        card.appendChild(img);
-        transformationTrack.appendChild(card);
-      });
+  function buildInfiniteGallery(trackId, images) {
+    const track = document.getElementById(trackId);
 
+    // duplicate array exactly twice
+    const fullList = [...images, ...images];
 
-    // ACHIEVEMENTS
-    const achievementImages = [
-         "bG-images/1.webp",
-    "bG-images/2.webp",
-    "bG-images/3.webp",
-    "bG-images/4.webp",
-    "bG-images/5.webp",
-    "bG-images/6.webp",
-    "bG-images/7.webp",
-    "bG-images/8.webp",
-    "bG-images/9.webp",
-    "bG-images/10.webp",
-    "bG-images/11.webp",
-    "bG-images/12.webp",
-    "bG-images/13.webp",
-    "bG-images/14.webp",
-    "bG-images/15.webp",
-    "bG-images/16.webp",
-    "bG-images/17.webp",
-    "bG-images/18.webp",
-    "bG-images/19.webp",
-    "bG-images/20.webp",
-    "bG-images/21.webp",
-    "bG-images/22.webp",
-    "bG-images/23.webp",
-    "bG-images/24.webp",
-    "bG-images/25.webp",
-    "bG-images/26.webp",
-    "bG-images/27.webp",
-    "bG-images/28.webp",
-    "bG-images/29.webp",
-    "bG-images/30.webp",
-    "bG-images/31.webp",
-    "bG-images/32.webp",
-    "bG-images/33.webp",
-    "bG-images/34.webp",
-    "bG-images/35.webp",
-    "bG-images/36.webp",
-    "bG-images/37.webp",
-    "bG-images/38.webp",
-    "bG-images/39.webp",
-    "bG-images/40.webp",
-    "bG-images/41.webp",
-    "bG-images/42.webp",
-    "bG-images/43.webp",
-    "bG-images/44.webp",
-    "bG-images/45.webp",
-    "bG-images/46.webp",
-    "bG-images/47.webp",
-    "bG-images/48.webp",
-    "bG-images/49.webp",
-    "bG-images/50.webp",
-    "bG-images/51.webp",
-    "bG-images/52.webp",
-    "bG-images/53.webp"
+    fullList.forEach(src => {
+      const card = document.createElement("div");
+      card.className = "infinite-scroll-card";
 
-    ];
+      const img = document.createElement("img");
+      img.src = src;
+      img.loading = "lazy";
+      img.alt = "Gallery Image";
 
-    const achievementsTrack = document.getElementById("achievements-track");
+      card.appendChild(img);
+      track.appendChild(card);
+    });
+  }
 
-    [...achievementImages, ...achievementImages, ...achievementImages]
-      .forEach(src => {
-        const card = document.createElement("div");
-        card.className = "infinite-scroll-card";
+  /* ===== INIT BOTH GALLERIES ===== */
 
-        const img = document.createElement("img");
-        img.src = src;
-        img.loading = "lazy";
-        img.alt = "Achievement";
+  buildInfiniteGallery("gallery-transformations", transformations);
+  buildInfiniteGallery("gallery-achievements", achievements);
 
-        card.appendChild(img);
-        achievementsTrack.appendChild(card);
-      });
-
-  });
+});
 </script>
 
 </body>
