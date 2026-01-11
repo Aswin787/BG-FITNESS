@@ -1,454 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BG-FITNESS</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* RESET & BASIC */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-    }
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px;
-    }
-    body {
-      background-color: #000;
-      color: #fff;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BG-FITNESS</title>
 
-    /* HEADER */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 5%;
-      background: #000;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: clamp(1.2rem, 2vw, 2rem);
-      white-space: nowrap;
-      color: #00ff88;
-      font-weight: 700;
-    }
-    .logo img {
-      height: clamp(40px, 6vw, 70px);
-      width: auto;
-    }
-    nav {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    nav a {
-      font-weight: 600;
-      font-size: clamp(0.8rem, 1.5vw, 1rem);
-      color: #fff;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: #00ff88; }
-     @media (max-width: 768px) {
-     nav a:last-child { display:; } /* hide Contact */
-    }
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
-    /* HERO */
-    .hero {
-      height: 90vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438") top center / cover no-repeat;  
-      position: relative;
-    }
-    .gallery-section {
-  padding: 40px 5% 20px;
-  text-align: center;
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Montserrat',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
 }
 
-.gallery-section h2 {
-  margin-top: 0;
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 5%;
+  background:#000;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:#00ff88;
+  font-weight:700;
+}
+.logo img{
+  height:60px;
+}
+nav{
+  display:flex;
+  gap:20px;
+}
+nav a{
+  font-weight:600;
+}
+nav a:hover{color:#00ff88;}
+
+/* HERO */
+.hero{
+  height:90vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438") center/cover no-repeat;
+  position:relative;
+  text-align:center;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+}
+.hero-content{
+  position:relative;
+  z-index:1;
+}
+.hero h2{
+  font-size:clamp(1.8rem,4vw,3rem);
+  background:linear-gradient(90deg,#00ff88,#00ccff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero button{
+  margin-top:20px;
+  padding:12px 28px;
+  background:#00ff88;
+  border:none;
+  border-radius:8px;
+  font-weight:600;
+  cursor:pointer;
+}
+.hero button:hover{background:#00cc66;}
+
+/* ===== FIRST GALLERY ===== */
+.gallery-section{
+  padding:40px 5% 20px;
+  text-align:center;
+}
+.gallery-section h2{
+  color:#00ff88;
+  margin-bottom:30px;
 }
 
-.gallery-section + .gallery-section {
-  margin-top: 0;
+/* ===== SECOND GALLERY ===== */
+.gallery-section2{
+  padding:40px 5% 20px;
+  text-align:center;
+}
+.gallery-section2 h2{
+  color:#00ff88;
+  margin-bottom:30px;
 }
 
-.infinite-scroll-container:empty {
-  display: none;
+/* INFINITE SCROLL */
+.infinite-scroll-container{
+  width:100%;
+  overflow:hidden;
+  background:#111;
+  border-radius:12px;
+  padding:20px 0;
+}
+.infinite-scroll-track{
+  display:flex;
+  width:max-content;
+  gap:20px;
+  animation:scroll-left 70s linear infinite; /* ⬅ slower */
+}
+.infinite-scroll-card{
+  flex-shrink:0;
+  width:400px;
+  height:500px;
+  border-radius:12px;
+  overflow:hidden;
+}
+.infinite-scroll-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-    .gallery-section h2 {
-  letter-spacing: 1px;
-  font-weight: 700;
+@keyframes scroll-left{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
 }
 
-    /* .hero {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  background-image: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  position: relative;
-  padding: 40px 20px;
-} */
-    .infinite-scroll-container:empty {
-  display: none;
-}
-
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.7);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      padding: 0 20px;
-    }
-/* .hero-content {
-  position: relative;
-  z-index: 1;
-
-  max-width: 900px;     /* prevents too-wide text on desktop */
-  margin: 0 auto;       /* horizontal center */
-  padding: 0 16px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;  /* center horizontally */
-  justify-content: center;
-  text-align: center;   /* text center */
-} */
-
-    
-    
-    .hero h2 {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      margin-bottom: 20px;
-      /* color: #00ff88;*/ color: #F5F7FA;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.7);
-
-
-
-      animation: fadeIn 2s ease-in-out;
-      background: linear-gradient(90deg, #ff0000, #ff6600, #00ff88);
-
-     background: linear-gradient(90deg, #ff6600,#00ff88 ); */
-
-
-       background: linear-gradient(90deg, #00ff88, #00ccff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-    }
-
-    /* .hero h2 {
-  font-size: clamp(1.3rem, 4vw, 3rem);
-  line-height: 1.3;
-  margin-bottom: 24px;
-
-  font-weight: 700;
-  letter-spacing: 0.5px;
-
-  animation: fadeIn 1.8s ease-in-out;
-
-  background: linear-gradient(90deg, #ff0000, #ff6600, #00ff88);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-} */
-
-    .hero button {
-      padding: 12px 24px;
-      background: #00ff88;
-      border: none;
-      font-size: clamp(0.9rem, 2vw, 1rem);
-      font-weight: 600;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: transform 0.3s, background 0.3s;
-    }
-    .hero button {
-  margin-top: 10px;
-  padding: clamp(10px, 2vw, 14px) clamp(18px, 4vw, 28px);
-  font-size: clamp(0.85rem, 2vw, 1.05rem);
-}
-
-    .hero button:hover {
-      transform: scale(1.05);
-      background: #00cc66;
-    }
-
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    /* GALLERY */
-    .gallery-section {
-      padding: 60px 5%;
-      text-align: center;
-    }
-    .gallery-section h2 {
-      font-size: clamp(1.8rem, 4vw, 2.2rem);
-      color: #00ff88;
-      margin-bottom: 40px;
-    }
-   .infinite-scroll-container {
-  width: 100%;
-  overflow: hidden;
-  background: #111;
-  border-radius: 12px;
-  padding: 20px 0;
-}
-
-.infinite-scroll-track {
-  display: flex;
-  width: max-content;
-  gap: 20px;
-  animation: scroll-left 40s linear infinite;
-}
-
-.infinite-scroll-card {
-  flex-shrink: 0;
-  width: 400px;
-  height: 500px;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #222;
-}
-
-.infinite-scroll-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@keyframes scroll-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
+/* MOBILE */
+@media(max-width:768px){
+  .infinite-scroll-card{
+    width:200px;
+    height:250px;
   }
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .infinite-scroll-card {
-    width: 200px;
-    height: 250px;
-  }
+/* SERVICES */
+.services{
+  padding:60px 5%;
+  text-align:center;
+}
+.services h2{color:#00ff88;margin-bottom:40px;}
+.service-boxes{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+}
+.service{
+  background:#111;
+  padding:20px;
+  border-radius:12px;
+  max-width:300px;
+}
+.service:hover{transform:translateY(-6px);}
+
+/* COACH */
+.coach{
+  padding:60px 5%;
+  text-align:center;
+}
+.coach h2{color:#00ff88;margin-bottom:40px;}
+.coach-card{
+  background:#111;
+  padding:20px;
+  border-radius:16px;
+  max-width:350px;
+  margin:auto;
+}
+.coach-card img{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  border:3px solid #00ff88;
 }
 
-    @keyframes scroll-cards {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(calc(-1000px * 25 - 120px)); } /*1000 6 120*/ /*30*/
-    }
-    @media (max-width: 768px) {
-      .infinite-scroll-card {
-        flex: 0 0 200px;
-        min-height: 250px;
-      }
-      @keyframes scroll-cards {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-800px * 12 - 120px)); } /800 6 120/
-      }
-    }
-
-    /* SERVICES */
-    .services {
-      padding: 60px 5%;
-      text-align: center;
-    }
-    .services h2 {
-      font-size: clamp(1.8rem, 4vw, 2.2rem);
-      color: #00ff88;
-      margin-bottom: 40px;
-    }
-    .service-boxes {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .service {
-      background: #111;
-      padding: 20px;
-      border-radius: 12px;
-      flex: 1 1 250px;
-      max-width: 300px;
-      transition: transform 0.3s;
-    }
-    .service:hover { transform: translateY(-8px); }
-    .service h3 { color: #00ff88; margin-bottom: 10px; }
-    .service p { font-size: clamp(0.8rem, 1.2vw, 1rem); }
-
-    /* COACH */
-    .coach {
-      padding: 60px 5%;
-      text-align: center;
-    }
-    .coach h2 {
-      font-size: clamp(1.8rem, 4vw, 2.2rem);
-      color: #00ff88;
-      margin-bottom: 40px;
-    }
-    .coach-card {
-      background: #111;
-      padding: 20px;
-      border-radius: 16px;
-      max-width: 350px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-    .coach-card:hover { transform: scale(1.05); }
-    .coach-card img {
-      width: clamp(150px, 30vw, 200px);
-      height: clamp(150px, 30vw, 200px);
-      border-radius: 50%;
-      margin-bottom: 20px;
-      border: 3px solid #00ff88;
-      object-fit: cover;
-    }
-    .coach-card h3 { color: #00ff88; margin-bottom: 10px; }
-    .socials a {
-      margin: 0 10px;
-      font-size: clamp(16px, 2vw, 20px);
-      color: #00ff88;
-      transition: color 0.3s;
-    }
-    .socials a:hover { color: #fff; }
-
-    /* HIGHLIGHT */
-    .highlight {
-      padding: 60px 5%;
-      text-align: center;
-      background: #111;
-      margin-top: 40px;
-      border-radius: 12px;
-    }
-    .highlight h2 {
-      font-size: clamp(1.2rem, 2vw, 1.5rem);
-      margin-bottom: 20px;
-    }
-    .highlight button {
-      padding: 12px 24px;
-      background: #00ff88;
-      border: none;
-      font-size: clamp(0.9rem, 2vw, 1rem);
-      font-weight: 600;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: transform 0.3s, background 0.3s;
-    }
-    .highlight button:hover {
-      transform: scale(1.05);
-      background: #00cc66;
-    }
-
-    /* CONTACT */
-    .contact {
-      padding: 60px 5%;
-      background: #000;
-      text-align: center;
-    }
-    .contact h2 {
-      font-size: clamp(1.8rem, 4vw, 2.2rem);
-      color: #00ff88;
-      margin-bottom: 40px;
-    }
-    .contact-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .contact-card {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 12px;
-      text-align: left;
-      flex: 1 1 220px;
-      max-width: 250px;
-      transition: transform 0.3s, background 0.3s;
-    }
-    .contact-card:hover {
-      transform: translateY(-5px);
-      background: #222;
-    }
-    .contact-card a { color: #00ff88; font-weight: 600; }
-    .contact-card a:hover { color: #fff; }
-
-    /* FOOTER */
-    footer {
-      background: #000;
-      padding: 20px 5%;
-      text-align: center;
-      border-top: 1px solid #222;
-      color: #aaa;
-      font-size: clamp(0.8rem, 1.5vw, 1rem);
-    }
-
-    /* RESPONSIVE TWEAKS */
-    @media (max-width: 500px) {
-      .hero h2 { font-size: 1.5rem; }
-      .coach-card { padding: 15px; }
-      .service { padding: 15px; }
-      header { padding: 10px 3%; }
-      nav { gap: 10px; }
-    }
-    @media (max-width: 480px) {
-  .hero h2 {
-    line-height: 1.25;
-  }
+/* CONTACT */
+.contact{
+  padding:60px 5%;
+  text-align:center;
+}
+.contact h2{color:#00ff88;margin-bottom:40px;}
+.contact-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+}
+.contact-card{
+  background:#1a1a1a;
+  padding:20px;
+  border-radius:12px;
+  max-width:250px;
 }
 
-
-      /* /* Mobile tweak for hero background */
-    @media (max-width: 768px) {
-  .hero {
-    background: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438") top center / contain no-repeat;
-    background-color: #000;
-  }
+/* FOOTER */
+footer{
+  padding:20px;
+  text-align:center;
+  color:#aaa;
 }
-
-  </style> 
+</style>
 </head>
+
 <body>
 
 <header>
   <h1 class="logo">
-    <img src="bG-images/Logo.png" alt="BG-FITNESS Logo" loading="lazy">
+    <img src="bG-images/Logo.png">
     BG-FITNESS
   </h1>
   <nav>
@@ -460,121 +232,31 @@
 
 <section class="hero">
   <div class="hero-content">
-   <h2>✨ Get personalized guidance, workouts, and nutrition support with a 120-day 1-on-1 fitness coaching plan. ✨</h2><!--  -->
+    <h2>✨ 120-day 1-on-1 Fitness Coaching ✨</h2>
     <button onclick="window.location.href='index7.html'">Book Now</button>
   </div>
 </section>
 
-<!-- GALLERY SECTION INSERTED HERE -->
+<!-- FIRST GALLERY -->
 <section class="gallery-section">
   <h2>💪 My Transformations</h2>
-
   <div class="infinite-scroll-container">
     <div class="infinite-scroll-track" id="gallery-transformations"></div>
   </div>
 </section>
-<section class="gallery-section">
-  <h2>Our Achievements</h2>
 
+<!-- SECOND GALLERY -->
+<section class="gallery-section2">
+  <h2>Our Achievements</h2>
   <div class="infinite-scroll-container">
     <div class="infinite-scroll-track" id="gallery-achievements"></div>
   </div>
 </section>
 
-<!-- END GALLERY -->
-
-<section class="services" id="services">
-  <h2>Our Services</h2>
-  <div class="service-boxes">
-    <div class="service">
-      <h3>Weight Training</h3>
-      <p>Build strength and muscle with expert-guided sessions.</p>
-    </div>
-    <div class="service">
-      <h3>Cardio</h3>
-      <p>Boost stamina with high-intensity cardio programs.</p>
-    </div>
-    <div class="service">
-      <h3>Zumba</h3>
-      <p>Burns calories, reduces stress, and boosts energy—all while having fun.</p>
-    </div>
-    <div class="service">
-      <h3>Personal Training</h3>
-      <p>One-on-one training customized for your fitness goals.</p>
-    </div>
-
-     <div class="service">
-      <h3>Weight Gain</h3>
-      <p>Healthy muscle-building programs tailored to help you gain lean mass effectively.</p>
-    </div>
-    <div class="service">
-      <h3>Weight Loss</h3>
-      <p>Scientifically designed workouts and nutrition guidance to burn fat sustainably.</p>
-    </div>
-    <div class="service">
-      <h3>Bodybuilding Training</h3>
-      <p>Specialized coaching for bodybuilding and fitness competitions to help you perform at your peak.</p>
-    </div>
-    <div class="service">
-      <h3>Diet Counseling</h3>
-      <p>Personalized meal plans and nutrition support to fuel your fitness journey.</p>
-    </div>
-  </div>
-</section>
-
-<section class="coach" id="coach">
-  <h2>Meet Our Coach</h2>
-  <div class="coach-card">
-    <img src="bG-images/17564854994131.jpg" alt="Coach Profile" loading="lazy">
-    <h3>B G <strong>Godson</strong></h3>
-    <p>Certified Fitness Coach with 7+ years experience in strength & conditioning.</p>
-    <div class="socials">
-      <a href="https://www.youtube.com/@b_g_godson/featured">🔗Youtube</a>
-      <a href="https://www.instagram.com/b_g_godson/?hl=en">📸Instagram</a>
-      <a href="#"><span style="color: #fff;">✘</span>Twitter</a>
-    </div>
-  </div>
-</section>
-
-<section class="highlight">
-<h2>Affordable plans designed for every fitness level. Expert coaching to keep you consistent. Real results that last a lifetime<!--    Push Harder. Train Smarter.<br>With eam BG--></h2> 
-  <button onclick="window.location.href='joinnow3.html'">Join Now</button>
-</section>
-
-<section class="contact" id="contact">
-  <h2>Contact Us</h2>
-  <div class="contact-container">
-    <div class="contact-card">
-      <p>📍 <strong>Address:</strong><br>BG-FITNESS, Annie complex,First Floor,Melakrishnanputhoor<br>Junction.</p>
-    </div>
-    <div class="contact-card">
-      <p>📧 <strong>Email:</strong><br> <a href="mailto:godsonzion0@gmail.com">godsonzion0@gmail.com</a></p>
-    </div>
-    <div class="contact-card">
-      <p>📞 <strong>Phone:</strong><br> <a href="tel:+919940909869">+91 99409 09869</a></p>
-    </div>
-    <div class="contact-card">
-      <p>💬 <strong>WhatsApp:</strong><br> <a href="https://wa.me/919940909869" target="_blank">Chat with us</a></p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© 2025 BG-FITNESS | All Rights Reserved</p>
-</footer>
-
 <script>
-  window.onload = function() {
-    window.scrollTo(0, 0);
-  };
-</script>
+document.addEventListener("DOMContentLoaded",()=>{
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-  /* ===== IMAGE ARRAYS ===== */
-
-  const transformations = [
+  const transformations=[
     "bG-images/Godson-T (1).webp",
     "bG-images/Godson-s6 (1).webp",
     "bG-images/Godson-U (1).webp",
@@ -583,40 +265,30 @@ document.addEventListener("DOMContentLoaded", () => {
     "bG-images/Godson-BB (1).webp"
   ];
 
-  const achievements = [];
-  for (let i = 1; i <= 53; i++) {
+  const achievements=[];
+  for(let i=1;i<=53;i++){
     achievements.push(`bG-images/${i}.webp`);
   }
 
-  /* ===== FUNCTION TO BUILD INFINITE GALLERY ===== */
-
-  function buildInfiniteGallery(trackId, images) {
-    const track = document.getElementById(trackId);
-
-    // duplicate array exactly twice
-    const fullList = [...images, ...images];
-
-    fullList.forEach(src => {
-      const card = document.createElement("div");
-      card.className = "infinite-scroll-card";
-
-      const img = document.createElement("img");
-      img.src = src;
-      img.loading = "lazy";
-      img.alt = "Gallery Image";
-
+  function buildInfiniteGallery(id,images){
+    const track=document.getElementById(id);
+    [...images,...images].forEach(src=>{
+      const card=document.createElement("div");
+      card.className="infinite-scroll-card";
+      const img=document.createElement("img");
+      img.src=src;
+      img.loading="lazy";
       card.appendChild(img);
       track.appendChild(card);
     });
   }
 
-  /* ===== INIT BOTH GALLERIES ===== */
-
-  buildInfiniteGallery("gallery-transformations", transformations);
-  buildInfiniteGallery("gallery-achievements", achievements);
+  buildInfiniteGallery("gallery-transformations",transformations);
+  buildInfiniteGallery("gallery-achievements",achievements);
 
 });
 </script>
 
 </body>
 </html>
+
