@@ -79,6 +79,28 @@
       background: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438") top center / cover no-repeat;  
       position: relative;
     }
+    .gallery-section {
+  padding: 40px 5% 20px;
+  text-align: center;
+}
+
+.gallery-section h2 {
+  margin-top: 0;
+}
+
+.gallery-section + .gallery-section {
+  margin-top: 0;
+}
+
+.infinite-scroll-container:empty {
+  display: none;
+}
+
+    .gallery-section h2 {
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
     /* .hero {
   min-height: 100vh;
   display: flex;
@@ -94,6 +116,10 @@
   position: relative;
   padding: 40px 20px;
 } */
+    .infinite-scroll-container:empty {
+  display: none;
+}
+
 
     .hero::after {
       content: "";
