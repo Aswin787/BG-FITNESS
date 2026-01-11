@@ -70,7 +70,7 @@
     }
 
     /* HERO */
-    /* .hero {
+    .hero {
       height: 90vh;
       display: flex;
       justify-content: center;
@@ -78,8 +78,8 @@
       text-align: center;
       background: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438") top center / cover no-repeat;  
       position: relative;
-    } */
-    .hero {
+    }
+    /* .hero {
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -93,7 +93,7 @@
 
   position: relative;
   padding: 40px 20px;
-}
+} */
 
     .hero::after {
       content: "";
@@ -101,12 +101,12 @@
       top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0,0,0,0.7);
     }
-    /* .hero-content {
+    .hero-content {
       position: relative;
       z-index: 1;
       padding: 0 20px;
-    } */
-.hero-content {
+    }
+/* .hero-content {
   position: relative;
   z-index: 1;
 
@@ -119,26 +119,27 @@
   align-items: center;  /* center horizontally */
   justify-content: center;
   text-align: center;   /* text center */
-}
+} */
 
     
-    /* 
+    
     .hero h2 {
       font-size: clamp(1.8rem, 4vw, 3rem);
       margin-bottom: 20px;
-/*       color: #00ff88; */
+      /* color: #00ff88;*/color: #F5F7FA; 
+
       animation: fadeIn 2s ease-in-out;
       background: linear-gradient(90deg, #ff0000, #ff6600, #00ff88);
 
-/*      background: linear-gradient(90deg, #ff6600,#00ff88 ); */
+     background: linear-gradient(90deg, #ff6600,#00ff88 ); */
 
 
-/*       background: linear-gradient(90deg, #00ff88, #00ccff); */
+       background: linear-gradient(90deg, #00ff88, #00ccff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-    } */
+    }
 
-    .hero h2 {
+    /* .hero h2 {
   font-size: clamp(1.3rem, 4vw, 3rem);
   line-height: 1.3;
   margin-bottom: 24px;
@@ -151,7 +152,7 @@
   background: linear-gradient(90deg, #ff0000, #ff6600, #00ff88);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
+} */
 
     .hero button {
       padding: 12px 24px;
@@ -392,6 +393,13 @@
 
 
       /* /* Mobile tweak for hero background */
+    @media (max-width: 768px) {
+  .hero {
+    background: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438") top center / contain no-repeat;
+    background-color: #000;
+  }
+}
+
   </style> 
 </head>
 <body>
