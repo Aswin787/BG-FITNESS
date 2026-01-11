@@ -433,7 +433,7 @@
     track.appendChild(card);
   });
 </script>
-  <script>
+  <!-- <script>
   const transformationImages = [
     "bG-images/Godson-T (1).webp",
     "bG-images/Godson-s6 (1).webp",
@@ -460,7 +460,87 @@
     card.appendChild(img);
     track.appendChild(card);
   });
+</script> -->
+  <script>
+  const achievementImages = [
+    "bG-images/1.webp",
+    "bG-images/2.webp",
+    "bG-images/3.webp",
+    "bG-images/4.webp",
+    "bG-images/5.webp",
+    "bG-images/6.webp",
+    "bG-images/7.webp",
+    "bG-images/8.webp",
+    "bG-images/9.webp",
+    "bG-images/10.webp",
+    "bG-images/11.webp",
+    "bG-images/12.webp",
+    "bG-images/13.webp",
+    "bG-images/14.webp",
+    "bG-images/15.webp",
+    "bG-images/16.webp",
+    "bg-images/17.webp",
+    "bG-images/18.webp",
+    "bG-images/19.webp",
+    "bG-images/20.webp",
+    "bG-images/21.webp",
+    "bG-images/22.webp",
+    "bG-images/23.webp",
+    "bG-images/24.webp",
+    "bG-images/25.webp",
+    "bG-images/26.webp",
+    "bG-images/27.webp",
+    "bG-images/28.webp",
+    "bG-images/29.webp",
+    "bG-images/30.webp",
+    "bG-images/31.webp",
+    "bg-images/32.webp",
+    "bG-images/33.webp",
+    "bG-images/34.webp",
+    "bG-images/35.webp",
+    "bG-images/36.webp",
+    "bG-images/37.webp",
+    "bG-images/38.webp",
+    "bG-images/39.webp",
+    "bG-images/40.webp",
+    "bG-images/41.webp",
+    "bG-images/42.webp",
+    "bG-images/43.webp",
+    "bG-images/44.webp",
+    "bG-images/45.webp",
+    "bG-images/46.webp",
+    "bg-images/47.webp",
+    "bG-images/48.webp",
+    "bG-images/49.webp",
+    "bG-images/50.webp",
+    "bG-images/51.webp",
+    "bG-images/52.webp",
+    "bG-images/53.webp"
+  ];
+
+  const achievementsTrack = document.getElementById("achievements-track");
+
+  // duplicate for infinite scrolling
+  const achievementRenderList = [
+    ...achievementImages,
+    ...achievementImages,
+    ...achievementImages
+  ];
+
+  achievementRenderList.forEach(src => {
+    const card = document.createElement("div");
+    card.className = "infinite-scroll-card";
+
+    const img = document.createElement("img");
+    img.src = src;
+    img.loading = "lazy";
+    img.alt = "Achievement";
+
+    card.appendChild(img);
+    achievementsTrack.appendChild(card);
+  });
 </script>
+
 
 
 <body>
@@ -497,173 +577,14 @@
 
 <section class="gallery-section">
   <h2>Our Achievements</h2>
-  <div class="infinite-scroll-container">
-    <div class="infinite-scroll-track">
-      <div class="infinite-scroll-card"><img src="bG-images/1.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/2.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/3.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/4.webp" alt="" loading="eager"></div>
-       <div class="infinite-scroll-card"><img src="bG-images/5.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/6.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/7.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/8.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/9.webp" alt="" loading="eager"></div>
-       <div class="infinite-scroll-card"><img src="bG-images/10.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/11.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/12.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/13.webp" alt="" loading="eager"></div>
-        <div class="infinite-scroll-card"><img src="bG-images/14.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/15.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/16.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bg-images/17.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/18.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/19.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/20.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/21.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/22.webp" alt="" loading="eager"></div>
-       <div class="infinite-scroll-card"><img src="bG-images/23.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/24.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/25.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/26.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/27.webp" alt="" loading="eager"></div>
-       <div class="infinite-scroll-card"><img src="bG-images/28.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/29.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/30.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/31.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bg-images/32.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/33.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/34.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/35.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/36.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/37.webp" alt=""></div>
-       <div class="infinite-scroll-card"><img src="bG-images/38.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/39.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/40.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/41.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/42.webp" alt=""></div>
-       <div class="infinite-scroll-card"><img src="bG-images/43.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/44.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/45.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/46.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bg-images/47.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/48.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/49.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/50.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/51.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/52.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/53.webp" alt=""></div> 
-      
-      <div class="infinite-scroll-card"><img src="bG-images/1.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/2.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/3.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/4.webp" alt="" loading="eager"></div>
-       <div class="infinite-scroll-card"><img src="bG-images/5.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/6.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/7.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/8.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/9.webp" alt="" loading="eager"></div>
-       <div class="infinite-scroll-card"><img src="bG-images/10.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/11.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/12.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/13.webp" alt="" loading="eager"></div>
-        <div class="infinite-scroll-card"><img src="bG-images/14.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/15.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/16.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bg-images/17.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/18.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/19.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/20.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/21.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/22.webp" alt="" loading="eager"></div>
-       <div class="infinite-scroll-card"><img src="bG-images/23.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/24.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/25.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/26.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/27.webp" alt="" loading="eager"></div>
-       <div class="infinite-scroll-card"><img src="bG-images/28.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/29.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/30.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/31.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bg-images/32.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/33.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/34.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/35.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/36.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/37.webp" alt=""></div>
-       <div class="infinite-scroll-card"><img src="bG-images/38.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/39.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/40.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/41.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/42.webp" alt=""></div>
-       <div class="infinite-scroll-card"><img src="bG-images/43.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/44.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/45.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/46.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bg-images/47.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/48.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/49.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/50.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/51.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/52.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/53.webp" alt=""></div> 
 
-      <!--D-->
-      <div class="infinite-scroll-card"><img src="bG-images/1.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/2.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/3.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/4.webp" alt="" loading="eager"></div>
-       <div class="infinite-scroll-card"><img src="bG-images/5.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/6.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/7.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/8.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/9.webp" alt="" loading="eager"></div>
-       <div class="infinite-scroll-card"><img src="bG-images/10.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/11.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/12.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/13.webp" alt="" loading="eager"></div>
-        <div class="infinite-scroll-card"><img src="bG-images/14.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/15.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/16.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bg-images/17.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/18.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/19.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/20.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/21.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/22.webp" alt="" loading="eager"></div>
-       <div class="infinite-scroll-card"><img src="bG-images/23.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/24.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/25.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/26.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/27.webp" alt="" loading="eager"></div>
-       <div class="infinite-scroll-card"><img src="bG-images/28.webp" alt="" loading="eager"></div>
-      <div class="infinite-scroll-card"><img src="bG-images/29.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/30.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/31.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bg-images/32.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/33.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/34.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/35.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/36.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/37.webp" alt=""></div>
-       <div class="infinite-scroll-card"><img src="bG-images/38.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/39.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/40.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/41.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/42.webp" alt=""></div>
-       <div class="infinite-scroll-card"><img src="bG-images/43.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/44.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/45.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/46.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bg-images/47.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/48.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/49.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/50.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/51.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/52.webp" alt=""></div>
-      <div class="infinite-scroll-card"><img src="bG-images/53.webp" alt=""></div> 
+  <div class="infinite-scroll-container">
+    <div class="infinite-scroll-track" id="achievements-track">
+      <!-- Images injected by JS -->
     </div>
   </div>
 </section>
+
 <!-- END GALLERY -->
 
 <section class="services" id="services">
