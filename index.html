@@ -73,23 +73,16 @@
    /* HERO SECTION */
 /* HERO */
 /* HERO */
+/* HERO SECTION */
 .hero {
-  height: 100vh;
+  height: 100vh; /* full viewport height on desktop */
   display: flex;
-  justify-content: center;  /* center horizontally */
-  align-items: center;      /* center vertically */
+  justify-content: center;  /* horizontal center */
+  align-items: center;      /* vertical center */
   background: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438") center / cover no-repeat;
   position: relative;
   text-align: center;
-  padding: 0 16px;  /* horizontal padding */
-}
-
-/* DARK OVERLAY */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.85));
-  z-index: 0;
+  padding: 0 16px;
 }
 
 /* HERO CONTENT */
@@ -102,7 +95,7 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  padding: 0 16px;  /* padding so text doesn’t touch edges */
+  padding: 0 16px;
 }
 
 /* HERO HEADING */
@@ -114,7 +107,7 @@
   background: linear-gradient(90deg, #00ff88, #00ccff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin: 0;  /* remove extra spacing */
+  margin: 0;
 }
 
 /* BUTTON */
@@ -134,14 +127,13 @@
   box-shadow: 0 10px 25px rgba(0,255,136,0.4);
 }
 
-/* MOBILE RESPONSIVE */
 /* MOBILE RESPONSIVE HERO ZOOM */
 @media (max-width: 768px) {
   .hero {
-    height: auto;            /* auto height for small screens */
-    min-height: 60vh;        /* still tall enough */
-    padding: 60px 16px 40px; /* top padding for image space, bottom padding for button */
-    background: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438") top center / cover no-repeat;
+    height: 100vh; /* full height of the viewport */
+    min-height: 100vh; 
+    padding: 0; /* remove extra padding */
+    background: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438") center / cover no-repeat;
   }
 
   .hero-content {
@@ -149,7 +141,7 @@
   }
 
   .hero h2 {
-    font-size: 1.3rem;  /* smaller to fit */
+    font-size: 1.5rem; /* fit mobile nicely */
   }
 
   .hero-btn {
@@ -157,14 +149,16 @@
   }
 }
 
+/* SMALL MOBILE */
 @media (max-width: 480px) {
   .hero {
-    min-height: 50vh;        /* reduce hero height for very small devices */
-    padding: 50px 16px 30px;
+    height: 100vh; 
+    min-height: 100vh;
+    background: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438") center / cover no-repeat;
   }
 
   .hero h2 {
-    font-size: 1.15rem;
+    font-size: 1.3rem;
     line-height: 1.2;
   }
 
@@ -172,6 +166,7 @@
     padding: 8px 20px;
   }
 }
+
 
 
 
