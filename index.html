@@ -72,17 +72,19 @@
     /* HERO */
    /* HERO SECTION */
 /* HERO */
+/* HERO */
 .hero {
-  height: 100vh; /* full viewport height */
+  height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center;  /* center horizontally */
+  align-items: center;      /* center vertically */
   background: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438") center / cover no-repeat;
   position: relative;
   text-align: center;
-  padding: 0 16px; /* minimal horizontal padding */
+  padding: 0 16px;  /* horizontal padding */
 }
 
+/* DARK OVERLAY */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -90,6 +92,7 @@
   z-index: 0;
 }
 
+/* HERO CONTENT */
 .hero-content {
   position: relative;
   z-index: 1;
@@ -98,20 +101,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px; /* reduce gap on smaller screens */
-  transform: none; /* remove previous translateY */
+  gap: 16px;
+  padding: 0 16px;  /* padding so text doesn’t touch edges */
 }
 
-/* HERO TEXT */
+/* HERO HEADING */
 .hero h2 {
-  font-size: clamp(1.2rem, 3vw, 2rem); /* smaller base font on mobile */
+  font-size: clamp(1.2rem, 3vw, 2rem);
   line-height: 1.2;
   font-weight: 700;
   text-shadow: 0 4px 12px rgba(0,0,0,0.8);
   background: linear-gradient(90deg, #00ff88, #00ccff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 0; /* remove extra spacing */
+  margin: 0;  /* remove extra spacing */
 }
 
 /* BUTTON */
@@ -134,9 +137,9 @@
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
   .hero {
-    height: auto; /* auto height to fit content */
-    min-height: 60vh; /* keep hero visually appealing */
-    padding: 40px 16px; /* padding on top and bottom */
+    height: auto;            /* auto height for small screens */
+    min-height: 60vh;        /* still tall enough */
+    padding: 60px 16px 40px; /* top padding for image space, bottom padding for button */
     background: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438") top center / cover no-repeat;
   }
 
@@ -145,7 +148,7 @@
   }
 
   .hero h2 {
-    font-size: 1.3rem; /* fit nicely */
+    font-size: 1.3rem;  /* smaller to fit */
   }
 
   .hero-btn {
@@ -154,11 +157,21 @@
 }
 
 @media (max-width: 480px) {
+  .hero {
+    min-height: 50vh;        /* reduce hero height for very small devices */
+    padding: 50px 16px 30px;
+  }
+
   .hero h2 {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     line-height: 1.2;
   }
+
+  .hero-btn {
+    padding: 8px 20px;
+  }
 }
+
 
 
 
