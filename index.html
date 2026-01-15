@@ -138,11 +138,10 @@
 /* MOBILE RESPONSIVE HERO ZOOM */
 @media (max-width: 768px) {
   .hero {
-    height: auto;
-    min-height: 70vh;               /* increased height for zoom effect */
-    padding: 60px 16px 40px;        /* adjust top/bottom padding */
-    background: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438") 
-                center top / 120% no-repeat; /* zoomed in */
+    height: auto;            /* auto height for small screens */
+    min-height: 60vh;        /* still tall enough */
+    padding: 60px 16px 40px; /* top padding for image space, bottom padding for button */
+    background: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438") top center / cover no-repeat;
   }
 
   .hero-content {
@@ -150,7 +149,7 @@
   }
 
   .hero h2 {
-    font-size: 1.35rem;             /* slightly larger text */
+    font-size: 1.3rem;  /* smaller to fit */
   }
 
   .hero-btn {
@@ -160,14 +159,12 @@
 
 @media (max-width: 480px) {
   .hero {
-    min-height: 75vh;               /* even taller for very small devices */
+    min-height: 50vh;        /* reduce hero height for very small devices */
     padding: 50px 16px 30px;
-    background: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438") 
-                center top / 130% no-repeat; /* more zoom for small screens */
   }
 
   .hero h2 {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     line-height: 1.2;
   }
 
@@ -175,8 +172,6 @@
     padding: 8px 20px;
   }
 }
-
-
 
 
 
