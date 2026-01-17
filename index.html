@@ -75,7 +75,7 @@
 /* HERO */
 /* HERO SECTION */
 .hero {
-  height: 100vh; /* full viewport height on desktop */
+  min-height: 100vh; /* full viewport height on desktop */
   display: flex;
   justify-content: center;  /* horizontal center */
   align-items: center;      /* vertical center */
@@ -197,6 +197,7 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
     .infinite-scroll-track {
+      animation-play-state: paused;
       display: flex;
       gap: 20px;
       animation: scroll-cards 80s linear infinite; /*18s*/
@@ -714,12 +715,6 @@
 </footer>
 
 <script>
-  window.onload = function() {
-    window.scrollTo(0, 0);
-  };
-</script>
-
-<script>
   function updateHeroText() {
     const heroH2 = document.querySelector('.hero h2');
     if (window.innerWidth <= 768) {
@@ -735,6 +730,15 @@
   // Run on resize
   window.addEventListener('resize', updateHeroText);
 </script>
+  <script>
+  window.addEventListener("load", () => {
+    document.querySelectorAll('.infinite-scroll-track')
+      .forEach(track => {
+        track.style.animationPlayState = 'running';
+      });
+  });
+</script>
+
 
 </body>
 </html>
