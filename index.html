@@ -613,7 +613,7 @@
   <p>© 2025 BG-FITNESS | All Rights Reserved</p>
 </footer>
 
- <script>
+ <!-- <script>
   function updateHeroText() {
     const heroH2 = document.querySelector('.hero h2');
     if (window.innerWidth <= 768) {
@@ -627,7 +627,7 @@
   updateHeroText();
 
   window.addEventListener('resize', updateHeroText);
-</script> 
+</script>  -->
 <script>
 function imagesLoaded(container) {
   const images = container.querySelectorAll('img');
@@ -705,19 +705,20 @@ async function makeInfinite(container, duration = 30) {
 
 
 </script>
-  <script>
+<script>
 window.addEventListener('load', () => {
+
+  /* ✅ FORCE PAGE TO TOP */
+  window.scrollTo(0, 0);
 
   /* ===== MOBILE (phones) ===== */
   if (window.innerWidth <= 768) {
 
-    // Track 1 – Transformations (mobile speed)
     makeInfinite(
       document.querySelector('.infinite-scroll-container'),
       35
     );
 
-    // Track 2 – Achievements (mobile slower speed)
     makeInfinite(
       document.querySelector('.infinite-scroll-container2'),
       450
@@ -727,13 +728,11 @@ window.addEventListener('load', () => {
   /* ===== LAPTOP / DESKTOP ===== */
   else {
 
-    // Track 1 – Transformations (desktop speed)
     makeInfinite(
       document.querySelector('.infinite-scroll-container'),
       30
     );
 
-    // Track 2 – Achievements (desktop speed)
     makeInfinite(
       document.querySelector('.infinite-scroll-container2'),
       200
@@ -742,6 +741,7 @@ window.addEventListener('load', () => {
 
 });
 </script>
+
 
 
 
