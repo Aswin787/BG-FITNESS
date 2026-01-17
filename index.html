@@ -196,7 +196,7 @@
       padding: 20px 0;
       box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
-    .infinite-scroll-track {
+    .infinite-scroll-track ,infinate-scroll-track2{
       animation-play-state: paused;
       display: flex;
       gap: 20px;
@@ -241,14 +241,14 @@
   }
 }
 
-.infinite-scroll-track {
+.infinite-scroll-track,infinate-scroll-track2 {
   display: flex;
   gap: 20px;
   animation: scroll-cards 40s linear infinite;
 }
 
 /* Duplicate track using CSS for seamless scroll */
-.infinite-scroll-track::after {
+.infinite-scroll-track::after,.infinite-scroll-track2::after {
   content: "";
   display: flex;
   width: 100%;
@@ -466,7 +466,7 @@
 <section class="gallery-section2">
   <h2>Our Achievements</h2>
   <div class="infinite-scroll-container2">
-    <div class="infinite-scroll-track">
+    <div class="infinite-scroll-track2">
       <div class="infinite-scroll-card"><img src="bG-images/1.webp" alt="" loading="eager"></div>
       <div class="infinite-scroll-card"><img src="bG-images/2.webp" alt="" loading="eager"></div>
       <div class="infinite-scroll-card"><img src="bG-images/3.webp" alt="" loading="eager"></div>
