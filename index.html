@@ -217,23 +217,56 @@
       object-fit: cover;
       display: block;
     }
+    .infinite-scroll-container,
+.infinite-scroll-container2 {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  background: #111;
+  border-radius: 12px;
+  padding: 20px 0;
+}
+
+.infinite-scroll-track {
+  display: flex;
+  gap: 20px;
+  will-change: transform;
+  animation: scroll-cards 80s linear infinite;
+  animation-play-state: paused;
+}
+
+.infinite-scroll-card {
+  flex: 0 0 400px;
+  min-height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #222;
+}
+
+.infinite-scroll-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .infinite-scroll-card {
+    flex: 0 0 200px;
+    min-height: 250px;
+  }
+}
+
+@keyframes scroll-cards {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
     .infinite-scroll-card:hover {
       transform: translateY(-5px);
     }
-    @keyframes scroll-cards {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(calc(-1000px * 25 - 120px)); } /*1000 6 120*/ /*30*/
-    }
-    @media (max-width: 768px) {
-      .infinite-scroll-card {
-        flex: 0 0 200px;
-        min-height: 250px;
-      }
-      @keyframes scroll-cards {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-800px * 12 - 120px)); } /800 6 120/
-      }
-    }
+  
    @media (max-width: 480px) {
   .hero h2 {
     font-size: 1.35rem;
@@ -247,17 +280,7 @@
   animation: scroll-cards 40s linear infinite;
 }
 
-/* Duplicate track using CSS for seamless scroll */
-.infinite-scroll-track::after {
-  content: "";
-  display: flex;
-  width: 100%;
-}
 
-@keyframes scroll-cards {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); } /* scroll full width */
-}
 
 
 
@@ -654,6 +677,31 @@
       .forEach(makeInfinite);
   });
 </script>
+  <script>
+  function makeInfinite(container) {
+    const track = container.querySelector('.infinite-scroll-track');
+    const cards = Array.from(track.children);
+
+    let trackWidth = track.scrollWidth;
+    const containerWidth = container.offsetWidth;
+
+    while (trackWidth < containerWidth * 2) {
+      cards.forEach(card => {
+        track.appendChild(card.cloneNode(true));
+      });
+      trackWidth = track.scrollWidth;
+    }
+
+    track.style.animationPlayState = 'running';
+  }
+
+  window.addEventListener('load', () => {
+    document
+      .querySelectorAll('.infinite-scroll-container, .infinite-scroll-container2')
+      .forEach(makeInfinite);
+  });
+</script>
+
 
 
 
