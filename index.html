@@ -254,11 +254,6 @@
   }
 }
 
-@keyframes scroll-cards {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
     .infinite-scroll-card:hover {
       transform: translateY(-5px);
     }
@@ -618,7 +613,7 @@
   <p>© 2025 BG-FITNESS | All Rights Reserved</p>
 </footer>
 
-<script>
+<!-- <script>
   function updateHeroText() {
     const heroH2 = document.querySelector('.hero h2');
     if (window.innerWidth <= 768) {
@@ -628,45 +623,57 @@
     }
   }
 
-  // Run on load
+
   updateHeroText();
 
-  // Run on resize
   window.addEventListener('resize', updateHeroText);
-</script>
+</script> -->
 <script>
-function makeInfinite(container, duration = 60) {
+function imagesLoaded(container) {
+  const images = container.querySelectorAll('img');
+  return Promise.all(
+    Array.from(images).map(img => {
+      if (img.complete) return Promise.resolve();
+      return new Promise(resolve => {
+        img.onload = img.onerror = resolve;
+      });
+    })
+  );
+}
+
+async function makeInfinite(container, duration = 40) { // ⬅ speed control
   const track = container.querySelector('.infinite-scroll-track');
   const cards = Array.from(track.children);
 
-  // Clone ONCE (this is key)
+  // Clone once
   cards.forEach(card => {
     track.appendChild(card.cloneNode(true));
   });
 
-  // Wait for images to load
-  requestAnimationFrame(() => {
-    const totalWidth = track.scrollWidth / 2;
+  // ✅ WAIT for ALL images
+  await imagesLoaded(track);
 
-    track.animate(
-      [
-        { transform: 'translateX(0)' },
-        { transform: `translateX(-${totalWidth}px)` }
-      ],
-      {
-        duration: duration * 1000, // 60 seconds
-        easing: 'linear',
-        iterations: Infinity
-      }
-    );
-  });
+  const totalWidth = track.scrollWidth / 2;
+
+  track.animate(
+    [
+      { transform: 'translateX(0)' },
+      { transform: `translateX(-${totalWidth}px)` }
+    ],
+    {
+      duration: duration * 1000, // seconds
+      easing: 'linear',
+      iterations: Infinity
+    }
+  );
 }
 
 window.addEventListener('load', () => {
-  makeInfinite(document.querySelector('.infinite-scroll-container'), 60);
-  makeInfinite(document.querySelector('.infinite-scroll-container2'), 60);
+  makeInfinite(document.querySelector('.infinite-scroll-container'), 35);   // faster
+  makeInfinite(document.querySelector('.infinite-scroll-container2'), 25); // even faster
 });
 </script>
+
 
 
 
