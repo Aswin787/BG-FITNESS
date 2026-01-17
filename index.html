@@ -702,26 +702,12 @@ async function makeInfinite(container, duration = 30) {
     anim.play();
   });
 }
-
-</script>
-  <script>
 window.addEventListener('load', () => {
-  const isMobile = window.innerWidth <= 768;
-
-  /* Track 1 – Transformations */
-  makeInfinite(
-    document.querySelector('.infinite-scroll-container'),
-    30 // SAME speed for desktop & mobile
-  );
-
-  /* Track 2 – Achievements */
-  makeInfinite(
-    document.querySelector('.infinite-scroll-container2'),
-    isMobile ? 40 : 20 // 👈 slower only on mobile
-  );
+  makeInfinite(document.querySelector('.infinite-scroll-container'), 30);
+  makeInfinite(document.querySelector('.infinite-scroll-container2'), 20);
 });
-</script>
 
+</script>
 
 
 
