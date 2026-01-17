@@ -200,18 +200,12 @@
   display: flex;
   gap: 20px;
   will-change: transform;
-  animation: scroll-cards 120s linear infinite; /* slower = full scroll */
-  animation-play-state: paused;
 }
-    .gallery-section2 .infinite-scroll-track {
+
+    /* .gallery-section2 .infinite-scroll-track {
   animation-duration: 80s;
-}
+} */
 
-
-@keyframes scroll-cards {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
 
     .infinite-scroll-card{
       flex: 0 0 400px;
@@ -640,79 +634,38 @@
   // Run on resize
   window.addEventListener('resize', updateHeroText);
 </script>
-  <script>
-function makeInfinite(container) {
+<script>
+function makeInfinite(container, duration = 60) {
   const track = container.querySelector('.infinite-scroll-track');
   const cards = Array.from(track.children);
 
-  let trackWidth = track.scrollWidth;
-  const containerWidth = container.offsetWidth;
+  // Clone ONCE (this is key)
+  cards.forEach(card => {
+    track.appendChild(card.cloneNode(true));
+  });
 
-  while (trackWidth < containerWidth * 2) {
-    cards.forEach(card => {
-      track.appendChild(card.cloneNode(true));
-    });
-    trackWidth = track.scrollWidth;
-  }
+  // Wait for images to load
+  requestAnimationFrame(() => {
+    const totalWidth = track.scrollWidth / 2;
 
-  track.style.animationPlayState = 'running';
+    track.animate(
+      [
+        { transform: 'translateX(0)' },
+        { transform: `translateX(-${totalWidth}px)` }
+      ],
+      {
+        duration: duration * 1000, // 60 seconds
+        easing: 'linear',
+        iterations: Infinity
+      }
+    );
+  });
 }
 
 window.addEventListener('load', () => {
-  document
-    .querySelectorAll('.infinite-scroll-container, .infinite-scroll-container2')
-    .forEach(makeInfinite);
+  makeInfinite(document.querySelector('.infinite-scroll-container'), 60);
+  makeInfinite(document.querySelector('.infinite-scroll-container2'), 60);
 });
-</script>
-
-  <script>
-  function makeInfinite(container) {
-    const track = container.querySelector('.infinite-scroll-track');
-    const cards = Array.from(track.children);
-
-    let trackWidth = track.scrollWidth;
-    const containerWidth = container.offsetWidth;
-
-    // Duplicate cards until track is wide enough
-    while (trackWidth < containerWidth * 2) {
-      cards.forEach(card => {
-        track.appendChild(card.cloneNode(true));
-      });
-      trackWidth = track.scrollWidth;
-    }
-
-    track.style.animationPlayState = 'running';
-  }
-
-  window.addEventListener('load', () => {
-    document
-      .querySelectorAll('.infinite-scroll-container, .infinite-scroll-container2')
-      .forEach(makeInfinite);
-  });
-</script>
-  <script>
-  function makeInfinite(container) {
-    const track = container.querySelector('.infinite-scroll-track');
-    const cards = Array.from(track.children);
-
-    let trackWidth = track.scrollWidth;
-    const containerWidth = container.offsetWidth;
-
-    while (trackWidth < containerWidth * 2) {
-      cards.forEach(card => {
-        track.appendChild(card.cloneNode(true));
-      });
-      trackWidth = track.scrollWidth;
-    }
-
-    track.style.animationPlayState = 'running';
-  }
-
-  window.addEventListener('load', () => {
-    document
-      .querySelectorAll('.infinite-scroll-container, .infinite-scroll-container2')
-      .forEach(makeInfinite);
-  });
 </script>
 
 
